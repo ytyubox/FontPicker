@@ -9,13 +9,15 @@ let package = Package(
             name: "FontPicker",
             targets: ["FontPicker"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/ytyubox/LoadingSystem", from: "1.0.0")
+    ],
     targets: [
         .target(
             name: "FontPicker",
             dependencies: []),
         .testTarget(
             name: "FontPickerTests",
-            dependencies: ["FontPicker"]),
+            dependencies: ["FontPicker", "LoadingSystem"]),
     ]
 )

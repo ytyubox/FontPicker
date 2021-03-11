@@ -192,17 +192,9 @@ Given the customer doesn't have connectivity
 | `name`          | `String`              |
 | `variants` | `Variant` |
 | `subsets`    | `SubSet` |
-| `files`            | `[URL]`               |
+| `files`            | `[String:URL]`               |
 | `category`            | `String`               |
 
-#### Variant
-| Property      | Type                |
-|---------------|---------------------|
-| `familyName`          | `String`              |
-| `variants` | `Variant` |
-| `subsets`    | `SubSet` |
-| `files`            | `File`               |
-| `category`            | `Category`               |
 
     
 ### Payload contract
