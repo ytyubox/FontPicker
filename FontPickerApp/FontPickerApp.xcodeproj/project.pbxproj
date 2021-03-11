@@ -38,6 +38,7 @@
 		D2C188B325FA044900B86D82 /* FontPickerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FontPickerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C188B725FA044900B86D82 /* FontPickerAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPickerAppTests.swift; sourceTree = "<group>"; };
 		D2C188B925FA044900B86D82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2C188E525FA0CCD00B86D82 /* secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = secrets.xcconfig; path = FontPickerApp/secrets.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +86,7 @@
 				D2C188A625FA044900B86D82 /* Main.storyboard */,
 				D2C188A925FA044900B86D82 /* Assets.xcassets */,
 				D2C188AB25FA044900B86D82 /* LaunchScreen.storyboard */,
+				D2C188E525FA0CCD00B86D82 /* secrets.xcconfig */,
 				D2C188AE25FA044900B86D82 /* Info.plist */,
 			);
 			path = FontPickerApp;
@@ -361,6 +363,7 @@
 		};
 		D2C188C825FA044900B86D82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2C188E525FA0CCD00B86D82 /* secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -380,6 +383,7 @@
 		};
 		D2C188C925FA044900B86D82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2C188E525FA0CCD00B86D82 /* secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
