@@ -18,6 +18,12 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "FontPickerTests",
-            dependencies: ["FontPicker", "LoadingSystem"]),
+            dependencies: ["FontPicker", "LoadingSystem"]
+        ),
+        .testTarget(
+            name: "FontPickerIntegrationTests",
+            dependencies: ["FontPicker", "LoadingSystem"],
+            resources: [.process("Resources")]
+        ),
     ]
 )
