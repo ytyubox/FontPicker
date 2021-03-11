@@ -3,16 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		D2C1890025FA13B200B86D82 /* FontsSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C188F625FA13B200B86D82 /* FontsSystem.framework */; };
 		D2C1890525FA13B200B86D82 /* FontsSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C1890425FA13B200B86D82 /* FontsSystemTests.swift */; };
+		D2C1891F25FA162300B86D82 /* FontPicker in Frameworks */ = {isa = PBXBuildFile; productRef = D2C1891E25FA162300B86D82 /* FontPicker */; };
+		D2C1892725FA165100B86D82 /* FontsSystemIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C1892625FA165100B86D82 /* FontsSystemIntegrationTests.swift */; };
+		D2C1892925FA165100B86D82 /* FontsSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C188F625FA13B200B86D82 /* FontsSystem.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		D2C1890125FA13B200B86D82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2C188ED25FA13B200B86D82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2C188F525FA13B200B86D82;
+			remoteInfo = FontsSystem;
+		};
+		D2C1892A25FA165100B86D82 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D2C188ED25FA13B200B86D82 /* Project object */;
 			proxyType = 1;
@@ -28,6 +38,9 @@
 		D2C1890425FA13B200B86D82 /* FontsSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsSystemTests.swift; sourceTree = "<group>"; };
 		D2C1890625FA13B200B86D82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2C1891425FA140F00B86D82 /* secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = secrets.xcconfig; sourceTree = "<group>"; };
+		D2C1892425FA165100B86D82 /* FontsSystemIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FontsSystemIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2C1892625FA165100B86D82 /* FontsSystemIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsSystemIntegrationTests.swift; sourceTree = "<group>"; };
+		D2C1892825FA165100B86D82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +56,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2C1890025FA13B200B86D82 /* FontsSystem.framework in Frameworks */,
+				D2C1891F25FA162300B86D82 /* FontPicker in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2C1892125FA165100B86D82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2C1892925FA165100B86D82 /* FontsSystem.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +76,9 @@
 			children = (
 				D2C188F825FA13B200B86D82 /* FontsSystem */,
 				D2C1890325FA13B200B86D82 /* FontsSystemTests */,
+				D2C1892525FA165100B86D82 /* FontsSystemIntegrationTests */,
 				D2C188F725FA13B200B86D82 /* Products */,
+				D2C1891D25FA162300B86D82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +87,7 @@
 			children = (
 				D2C188F625FA13B200B86D82 /* FontsSystem.framework */,
 				D2C188FF25FA13B200B86D82 /* FontsSystemTests.xctest */,
+				D2C1892425FA165100B86D82 /* FontsSystemIntegrationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +108,22 @@
 				D2C1890625FA13B200B86D82 /* Info.plist */,
 			);
 			path = FontsSystemTests;
+			sourceTree = "<group>";
+		};
+		D2C1891D25FA162300B86D82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2C1892525FA165100B86D82 /* FontsSystemIntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				D2C1892625FA165100B86D82 /* FontsSystemIntegrationTests.swift */,
+				D2C1892825FA165100B86D82 /* Info.plist */,
+			);
+			path = FontsSystemIntegrationTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,8 +171,29 @@
 				D2C1890225FA13B200B86D82 /* PBXTargetDependency */,
 			);
 			name = FontsSystemTests;
+			packageProductDependencies = (
+				D2C1891E25FA162300B86D82 /* FontPicker */,
+			);
 			productName = FontsSystemTests;
 			productReference = D2C188FF25FA13B200B86D82 /* FontsSystemTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D2C1892325FA165100B86D82 /* FontsSystemIntegrationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2C1892C25FA165100B86D82 /* Build configuration list for PBXNativeTarget "FontsSystemIntegrationTests" */;
+			buildPhases = (
+				D2C1892025FA165100B86D82 /* Sources */,
+				D2C1892125FA165100B86D82 /* Frameworks */,
+				D2C1892225FA165100B86D82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2C1892B25FA165100B86D82 /* PBXTargetDependency */,
+			);
+			name = FontsSystemIntegrationTests;
+			productName = FontsSystemIntegrationTests;
+			productReference = D2C1892425FA165100B86D82 /* FontsSystemIntegrationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -147,6 +209,9 @@
 						CreatedOnToolsVersion = 12.4;
 					};
 					D2C188FE25FA13B200B86D82 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					D2C1892325FA165100B86D82 = {
 						CreatedOnToolsVersion = 12.4;
 					};
 				};
@@ -166,6 +231,7 @@
 			targets = (
 				D2C188F525FA13B200B86D82 /* FontsSystem */,
 				D2C188FE25FA13B200B86D82 /* FontsSystemTests */,
+				D2C1892325FA165100B86D82 /* FontsSystemIntegrationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -179,6 +245,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D2C188FD25FA13B200B86D82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2C1892225FA165100B86D82 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -203,6 +276,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2C1892025FA165100B86D82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2C1892725FA165100B86D82 /* FontsSystemIntegrationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -210,6 +291,11 @@
 			isa = PBXTargetDependency;
 			target = D2C188F525FA13B200B86D82 /* FontsSystem */;
 			targetProxy = D2C1890125FA13B200B86D82 /* PBXContainerItemProxy */;
+		};
+		D2C1892B25FA165100B86D82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2C188F525FA13B200B86D82 /* FontsSystem */;
+			targetProxy = D2C1892A25FA165100B86D82 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -421,6 +507,42 @@
 			};
 			name = Release;
 		};
+		D2C1892D25FA165100B86D82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3AMPL46LPV;
+				INFOPLIST_FILE = FontsSystemIntegrationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.inkinyu.FontsSystemIntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D2C1892E25FA165100B86D82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3AMPL46LPV;
+				INFOPLIST_FILE = FontsSystemIntegrationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.inkinyu.FontsSystemIntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -451,7 +573,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		D2C1892C25FA165100B86D82 /* Build configuration list for PBXNativeTarget "FontsSystemIntegrationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2C1892D25FA165100B86D82 /* Debug */,
+				D2C1892E25FA165100B86D82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D2C1891E25FA162300B86D82 /* FontPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FontPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D2C188ED25FA13B200B86D82 /* Project object */;
 }
