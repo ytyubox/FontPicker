@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "FontPicker",
+    platforms: [SupportedPlatform.macOS(.v10_15)],
     products: [
         .library(
             name: "FontPicker",

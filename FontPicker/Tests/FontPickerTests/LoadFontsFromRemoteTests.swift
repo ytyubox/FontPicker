@@ -3,36 +3,6 @@ import LoadingSystem
 import TestUtils
 import XCTest
 
-public final class RemoteFontLoader: RemoteLoader<[Font]> {
-    public convenience init(url: URL, client: HTTPClient) {
-        self.init(url: url, client: client) { (data, response) -> [Font] in
-            try FontItemsMapper.map(data, from: response).toModels()
-        }
-    }
-}
-extension Font: AModel {
-    public var local: Never {
-        fatalError("Yet")
-    }
-    
-    public typealias Local = Never
-    
-    
-}
-extension RemoteFont: RemoteModel {
-    public var model: Font {
-        var variantsModel = [Variant]()
-        for name in variants {
-            guard let fileURL = files[name] else {continue}
-            variantsModel.append(Variant(name: name, fileURL: fileURL))
-        }
-        return Font(name: family, variants: variantsModel, subsets: subsets, category: category)
-    }
-    
-    public typealias Model = Font
-    
-    
-}
 
 final class LoadFontsFromRemoteTests: XCTestCase {
     func test_FontLoaderAfterInitWillNotRequestAnyURL() {
