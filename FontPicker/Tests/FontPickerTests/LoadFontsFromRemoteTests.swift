@@ -3,12 +3,35 @@ import LoadingSystem
 import TestUtils
 import XCTest
 
-public final class RemoteFontLoader: RemoteLoader<[RemoteFont]> {
+public final class RemoteFontLoader: RemoteLoader<[Font]> {
     public convenience init(url: URL, client: HTTPClient) {
-        self.init(url: url, client: client) { (data, response) -> [RemoteFont] in
-            try FontItemsMapper.map(data, from: response)
+        self.init(url: url, client: client) { (data, response) -> [Font] in
+            try FontItemsMapper.map(data, from: response).toModels()
         }
     }
+}
+extension Font: AModel {
+    public var local: Never {
+        fatalError("Yet")
+    }
+    
+    public typealias Local = Never
+    
+    
+}
+extension RemoteFont: RemoteModel {
+    public var model: Font {
+        var variantsModel = [Variant]()
+        for name in variants {
+            guard let fileURL = files[name] else {continue}
+            variantsModel.append(Variant(name: name, fileURL: fileURL))
+        }
+        return Font(name: family, variants: variantsModel, subsets: subsets, category: category)
+    }
+    
+    public typealias Model = Font
+    
+    
 }
 
 final class LoadFontsFromRemoteTests: XCTestCase {
@@ -77,6 +100,34 @@ final class LoadFontsFromRemoteTests: XCTestCase {
             client.complete(withStatusCode: 200, data: emptyListJSON)
         })
     }
+    func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
+        let (sut, client) = makeSUT()
+        let variants = [
+            makeVariant(name: "variant1", fileURL: URL(string: "https://variants1.com")!),
+            makeVariant(name: "variant2", fileURL: URL(string: "https://variants2.com")!)
+        ]
+        let item1 = makeItem(name: "Item01",
+                             variants: variants,
+                             subsets: ["Subset1"],
+                             category: "category1"
+
+        )
+
+        let item2 = makeItem(name: "Item02",
+                             variants: variants,
+                             subsets: ["Subset2"],
+                             category: "category2"
+
+        )
+
+        let items = [item1.model, item2.model]
+
+        expect(sut, toCompleteWith: .success(items), when: {
+            let json = makeItemsJSON([item1.json, item2.json])
+            client.complete(withStatusCode: 200, data: json)
+        })
+    }
+
 
     // MARK: - Helper
 
@@ -95,6 +146,39 @@ final class LoadFontsFromRemoteTests: XCTestCase {
         return try! JSONSerialization.data(withJSONObject: json)
     }
 
+    private func makeItem(name: String, variants: [Variant], subsets: [String], category: String) -> (model: Font, json: [String: Any]) {
+        let item = Font(name: name, variants: variants, subsets: subsets, category: category)
+        let variantJSON = makeVariantJSON(variants)
+        let json:[String: Any] = [
+            "family": name,
+            "variants": variantJSON["variants"],
+            "subsets": subsets,
+            "version": "AnyVersion",
+            "lastModified": "AnyLastModified",
+            "files": variantJSON["files"],
+            "category": category,
+            "kind": "AnyKind",
+        ].compactMapValues { $0 }
+        dump(json)
+        return (item, json)
+    }
+    private func makeVariant(name: String, fileURL: URL) -> Variant {
+        Variant(name: name, fileURL: fileURL)
+    }
+    private func makeVariantJSON(_ variants: [Variant]) -> [String: Any] {
+        let pairsGroup = Dictionary(grouping: variants, by: {$0.name})
+        let pairs = pairsGroup.mapValues{
+            (value:[Variant]) in
+            value.map(\.fileURL).map(\.absoluteString).joined()
+        }
+        let json:[String:Any] = [
+            "variants":variants.map(\.name),
+            "files": pairs
+        ]
+        
+        return json
+        
+    }
     private func expect(_ sut: SUT, toCompleteWith expectedResult: TheResult, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
         let exp = expectation(description: "Wait for load completion")
 

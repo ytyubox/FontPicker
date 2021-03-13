@@ -16,10 +16,17 @@ final class FontItemsMapper {
     }
 
     static func map(_ data: Data, from response: HTTPURLResponse) throws -> [RemoteFont] {
-        guard response.isOK, let root = try? JSONDecoder().decode(Root.self, from: data) else {
+        
+        guard response.isOK
+        else {
             throw RemoteError.invalidData
         }
-
-        return root.items
+        do {
+            let root = try JSONDecoder().decode(Root.self, from: data)
+            return root.items
+        } catch {
+            print(error)
+            throw RemoteError.invalidData
+        }
     }
 }
