@@ -23,9 +23,16 @@ extension ManagedVariant {
         request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(ManagedVariant.url), url])
         request.returnsObjectsAsFaults = false
         request.fetchLimit = 1
-        return try context.fetch(request).first
+        let result =
+            try context.fetch(request)
+        dump(result)
+        return result.first
     }
-
+    
+    static func newUniqueInstance(with url: URL, in context: NSManagedObjectContext) throws -> ManagedVariant {
+        try first(with: url, in: context).map(context.delete)
+        return ManagedVariant(context: context)
+    }
     static func variants(from localVariants: [LocalFont.LocalVariant], in context: NSManagedObjectContext) -> NSOrderedSet {
         return NSOrderedSet(array: localVariants.map { local in
             let managed = ManagedVariant(context: context)

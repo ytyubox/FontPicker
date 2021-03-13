@@ -5,12 +5,10 @@ extension CoreDataFontStore: FontFileStore {
     public func insert(_ data: Data, for url: URL, completion: @escaping (DataStore.InsertionResult) -> Void) {
         perform { context in
             completion(Result {
-                try ManagedVariant.first(with: url, in: context)
-                    .map {
-                        $0.data = data
-                        $0.url = url
-                    }
-                    .map(context.save)
+                let managedVariant = try ManagedVariant.newUniqueInstance(with: url, in: context)
+                managedVariant.url = url
+                managedVariant.data = data
+                try context.save()
             })
         }
     }

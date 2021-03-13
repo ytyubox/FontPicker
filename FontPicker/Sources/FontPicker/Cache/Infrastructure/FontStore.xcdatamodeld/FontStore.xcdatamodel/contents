@@ -12,7 +12,7 @@
         <relationship name="variants" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ManagedVariant" inverseName="font" inverseEntity="ManagedVariant"/>
     </entity>
     <entity name="ManagedVariant" representedClassName="ManagedVariant" syncable="YES">
-        <attribute name="data" optional="YES" attributeType="Binary"/>
+        <attribute name="data" optional="YES" attributeType="Binary" storedInTruthFile="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="URI"/>
         <relationship name="font" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedFont" inverseName="variants" inverseEntity="ManagedFont"/>
@@ -20,6 +20,6 @@
     <elements>
         <element name="ManagedCache" positionX="-251.18359375" positionY="21.41015625" width="128" height="59"/>
         <element name="ManagedFont" positionX="0" positionY="0" width="128" height="118"/>
-        <element name="ManagedVariant" positionX="318.83203125" positionY="-15.57421875" width="128" height="89"/>
+        <element name="ManagedVariant" positionX="318.83203125" positionY="-15.57421875" width="128" height="28"/>
     </elements>
 </model>
