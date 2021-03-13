@@ -5,7 +5,7 @@
       location = "group:FontPicker">
    </FileRef>
    <FileRef
-      location = "group:FontsSystem/FontsSystem.xcodeproj">
+      location = "group:FontAppiOS/FontAppiOS.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:FontPickerApp/FontPickerApp.xcodeproj">

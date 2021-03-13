@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "FontPicker",
     defaultLocalization: "en",
-    platforms: [SupportedPlatform.macOS(.v10_15)],
+    platforms: [.macOS(.v10_15), .iOS(.v13)],
     products: [
         .library(
             name: "FontPicker",
@@ -23,7 +23,7 @@ let package = Package(
             dependencies: [
                 "LoadingSystem",
             ],
-            resources:[.process("Resources")]
+            resources: [.process("Resources")]
         ),
         .testTarget(
             name: "FontPickerTests",
