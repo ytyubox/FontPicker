@@ -1,37 +1,35 @@
 //
-/* 
+/*
  *		Created by 游宗諭 in 2021/3/13
- *		
+ *
  *		Using Swift 5.0
- *		
+ *
  *		Running on macOS 11.2
  */
 
-
-import XCTest
+import FontPicker
 import LoadingSystem
 import TestUtils
-import FontPicker
+import XCTest
 
 final class LoadFontsFromRemoteIntegrationTests: XCTestCase {
-
     func test_endToEndTestServerGETResult_WillSuccessfullyDecode() throws {
         try throwIfNoAPIKEY()
         let receivedResult = getFontResult()
         switch receivedResult {
         case let .success(fonts):
-            XCTAssertFalse(fonts.isEmpty, "Expected 8 items in the test account feed")
-           
+            XCTAssertFalse(fonts.isEmpty, "Expected result is not empty")
 
         case let .failure(error):
-            XCTFail("Expected successful feed result, got \(error) instead")
+            XCTFail("Expected successful font result, got \(error) instead")
 
         default:
-            XCTFail("Expected successful feed result, got no result instead")
+            XCTFail("Expected successful font result, got no result instead")
         }
     }
-    func test_endToEndTestServerGETFeedImageDataResult_matchesFixedTestAccountData() {
-        switch getFeedImageDataResult() {
+
+    func test_endToEndTestServerGETfontImageDataResult_matchesFixedTestAccountData() {
+        switch getFontImageDataResult() {
         case let .success(data)?:
             XCTAssertFalse(data.isEmpty, "Expected non-empty image data")
 
@@ -42,14 +40,16 @@ final class LoadFontsFromRemoteIntegrationTests: XCTestCase {
             XCTFail("Expected successful image data result, got no result instead")
         }
     }
-    
+
     // MARK: - Helpers
+
     private let APIKEY = ""
     func throwIfNoAPIKEY(file: StaticString = #filePath, line: UInt = #line) throws {
         if APIKEY.isEmpty {
             throw XCTSkip("Set API in the Helper column, ⚠️ remember don't commit it ⚠️ ", file: file, line: line)
         }
     }
+
     private func getFontResult(file _: StaticString = #file, line _: UInt = #line) -> RemoteFontLoader.Outcome? {
         let loader = RemoteFontLoader(url: theRealGoogleFontServerURL, client: ephemeralClient())
         trackForMemoryLeaks(loader)
@@ -65,7 +65,7 @@ final class LoadFontsFromRemoteIntegrationTests: XCTestCase {
         return receivedResult
     }
 
-    private func getFeedImageDataResult(file: StaticString = #file, line: UInt = #line) -> RemoteFontFileLoader.Outcome? {
+    private func getFontImageDataResult(file: StaticString = #file, line: UInt = #line) -> RemoteFontFileLoader.Outcome? {
         let url = abeezee_Font_From_gstatic_Wedsite
         let loader = RemoteFontFileLoader(client: ephemeralClient())
         trackForMemoryLeaks(loader, file: file, line: line)
@@ -85,6 +85,7 @@ final class LoadFontsFromRemoteIntegrationTests: XCTestCase {
     private var theRealGoogleFontServerURL: URL {
         URL(string: "https://www.googleapis.com/webfonts/v1/webfonts?key=\(APIKEY)")!
     }
+
     private var abeezee_Font_From_gstatic_Wedsite: URL {
         URL(string: "http://fonts.gstatic.com/s/abeezee/v14/esDR31xSG-6AGleN6tKukbcHCpE.ttf")!
     }
@@ -94,6 +95,4 @@ final class LoadFontsFromRemoteIntegrationTests: XCTestCase {
         trackForMemoryLeaks(client, file: file, line: line)
         return client
     }
-
-   
 }

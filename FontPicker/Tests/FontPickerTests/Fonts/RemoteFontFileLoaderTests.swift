@@ -10,7 +10,7 @@ import FontPicker
 import TestUtils
 import XCTest
 
-class LoadFeedDataFromRemoteUseCaseTests: XCTestCase {
+class LoadFontFileFromRemoteUseCaseTests: XCTestCase {
     func test_init_doesNotPerformAnyURLRequest() {
         let (_, client) = makeSUT()
 
