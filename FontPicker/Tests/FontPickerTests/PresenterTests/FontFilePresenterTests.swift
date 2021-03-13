@@ -15,50 +15,63 @@ class FontFilePresenterTests: XCTestCase {
 		XCTAssertTrue(view.messages.isEmpty, "Expected no view messages")
 	}
 	
-	func test_didStartLoadingFontFileData_displaysLoadingFontFile() {
+	func test_didStartLoadingFontFileData_displaysLoadingFontFile() throws {
 		let (sut, view) = makeSUT()
 		let font = uniqueFont()
 		
-        sut.didStartLoadingImageData(for: font)
+        sut.didStartLoadingData(for: (font, anyURL()))
 		
-		let message = view.messages.first
+		let message = try XCTUnwrap(view.messages.first)
 		XCTAssertEqual(view.messages.count, 1)
-        XCTAssertNil(message?.font)
+        XCTAssertTrue(message.variants.compactMap(\.font).isEmpty)
 
 	}
 	
-	func test_didFinishLoadingFontFileData_displaysRetryOnFailedFontFileTransformation() {
+    func test_didFinishLoadingFontFileData_displaysRetryOnFailedFontFileTransformation() throws {
         let (sut, view) = makeSUT(fontTransformer: fail)
-		let font = uniqueFont()
+        let url1 = URL(string: "http://url1.com")!
+        let url2 = URL(string: "http://url2.com")!
+        let variants = [Variant(name: "v1", fileURL: url1), Variant(name: "v2", fileURL: url2)]
+        let font = uniqueFont(variants: variants )
 		
-		sut.didFinishLoadingImageData(with: Data(), for: font)
+		sut.didFinishLoadingData(with: Data(), for: (font, url1))
 		
-		let message = view.messages.first
-		XCTAssertEqual(view.messages.count, 1)
-        XCTAssertNil(message?.font)
+        XCTAssertEqual(view.messages.count, 1)
+        let message = try XCTUnwrap(view.messages.first)
+        
+        assertExpect(message, font, variants, shouldRetry: false, fonts: [nil, nil])
 	}
 	
-	func test_didFinishLoadingFontFileData_displaysFontFileOnSuccessfulTransformation() {
-		let font = uniqueFont()
+	func test_didFinishLoadingFontFileData_displaysFontFileOnSuccessfulTransformation() throws {
 		let transformedData = AnyFont()
         let (sut, view) = makeSUT(fontTransformer: { _ in transformedData })
 		
-        sut.didFinishLoadingImageData(with: Data(), for: font)
-		
-		let message = view.messages.first
-		XCTAssertEqual(view.messages.count, 1)
-        XCTAssertNotNil(message?.font)
+        let url1 = URL(string: "http://url1.com")!
+        let url2 = URL(string: "http://url2.com")!
+        let variants = [Variant(name: "v1", fileURL: url1), Variant(name: "v2", fileURL: url2)]
+        let font = uniqueFont(variants: variants )
+        
+        sut.didFinishLoadingData(with: Data(), for: (font, url1))
+        
+        let message1 = try XCTUnwrap(view.messages.first)
+        XCTAssertEqual(view.messages.count, 1)
+        assertExpect(message1, font, variants, shouldRetry: false, fonts: [transformedData, nil])
+        
+        sut.didFinishLoadingData(with: Data(), for: (font, url2))
+        XCTAssertEqual(view.messages.count, 2)
+        let message2 = view.messages[1]
+        assertExpect(message2, font, variants, shouldRetry: false, fonts: [transformedData, transformedData])
 	}
 	
-	func test_didFinishLoadingFontFileDataWithError_displaysRetry() {
+	func test_didFinishLoadingFontFileDataWithError_displaysRetry() throws {
         let font = uniqueFont()
         let (sut, view) = makeSUT()
 		
-		sut.didFinishLoadingImageData(with: anyNSError(), for: font)
+		sut.didFinishLoadingData(with: anyNSError(), for: (font, anyURL()))
 		
-		let message = view.messages.first
-		XCTAssertEqual(view.messages.count, 1)
-		XCTAssertNil(message?.font)
+        let message = try XCTUnwrap(view.messages.first)
+        XCTAssertEqual(view.messages.count, 1)
+        XCTAssertTrue(message.variants.compactMap(\.font).isEmpty)
 	}
 	
 	// MARK: - Helpers
@@ -75,6 +88,26 @@ class FontFilePresenterTests: XCTestCase {
 		return (sut, view)
 	}
 	
+    private func assertExpect(
+        _ message: FontFileViewModel<FontFilePresenterTests.AnyFont>,
+        _ font: Font,
+        _ variants: [Variant],
+        shouldRetry: Bool,
+        fonts: [AnyFont?],
+        file: StaticString = #filePath,
+        line: UInt = #line
+        
+    ) {
+        XCTAssertEqual(message.name, font.name)
+        XCTAssertEqual(message.fontDemoText, "Demo")
+        XCTAssertEqual(message.subsets, font.subsets)
+        XCTAssertEqual(message.category, font.category)
+        XCTAssertEqual(message.shouldRetry, shouldRetry)
+        XCTAssertEqual(message.variants.map(\.weight), variants.map(\.name))
+        XCTAssertEqual(message.variants.map(\.url), variants.map(\.fileURL))
+        XCTAssertEqual(message.variants.map(\.font), fonts, file: file, line: line)
+    }
+    
 	private var fail: (Data) -> AnyFont? {
 		return { _ in nil }
 	}

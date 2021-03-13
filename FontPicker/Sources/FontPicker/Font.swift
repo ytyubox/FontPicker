@@ -16,11 +16,15 @@ public struct Font:Hashable {
 }
 
 public struct Variant:Hashable {
-    public init(name: String, fileURL: URL) {
+    public init(name: String, fileURL: URL, data: Data? = nil) {
         self.name = name
         self.fileURL = fileURL
+        self.data = data
     }
+    
+   
     
     public let name: String
     public let fileURL: URL
+    public let data:Data?
 }

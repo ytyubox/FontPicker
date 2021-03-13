@@ -11,13 +11,19 @@
 import Foundation
 import TestUtils
 import FontPicker
-func uniqueFont() -> Font {
-    return Font(name: UUID().uuidString, variants: [
-        Variant(name: UUID().uuidString, fileURL: anyURL())
-    ], subsets: [UUID().uuidString], category: UUID().uuidString)
+
+
+func uniqueFont(variants: [Variant] = [
+    Variant(name: UUID().uuidString, fileURL: anyURL())
+]) -> Font {
+    return Font(name: UUID().uuidString,
+                variants: variants,
+                subsets: [UUID().uuidString],
+                category: UUID().uuidString)
 }
 
 func uniqueFonts() -> (models: [Font], local: [LocalFont]) {
    let models = [uniqueFont(), uniqueFont()]
     return (models, models.toLocals())
 }
+
