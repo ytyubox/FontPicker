@@ -11,7 +11,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ytyubox/LoadingSystem", from: "1.0.0"),
-        .package(url: "https://github.com/ytyubox/TestUtils", from: "1.0.0")
+        .package(url: "https://github.com/ytyubox/TestUtils", from: "1.0.0"),
+        .package(name: "Difference", url: "https://github.com/krzysztofzablocki/Difference.git", .branch("master")),
     ],
     targets: [
         .target(
@@ -20,7 +21,7 @@ let package = Package(
             ]),
         .testTarget(
             name: "FontPickerTests",
-            dependencies: ["FontPicker", "LoadingSystem", "TestUtils"]
+            dependencies: ["FontPicker", "LoadingSystem", "TestUtils", "Difference"]
         ),
     ]
 )
