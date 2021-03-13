@@ -43,7 +43,7 @@ final class LoadFontFromCacheTests: XCTestCase {
         })
     }
 
-    func test_load_deliversNoImagesOnEmptyCache() {
+    func test_load_deliversNoDataOnEmptyCache() {
         let (sut, store) = makeSUT()
 
         expect(sut, toCompleteWith: .success([]), when: {
@@ -51,7 +51,7 @@ final class LoadFontFromCacheTests: XCTestCase {
         })
     }
 
-    func test_load_deliversCachedImagesOnNonExpiredCache() {
+    func test_load_deliversCachedDataOnNonExpiredCache() {
         let font = uniqueFonts()
         let fixedCurrentDate = Date()
         let nonExpiredTimestamp = fixedCurrentDate.minusCacheMaxAge().adding(seconds: 1)
@@ -62,7 +62,7 @@ final class LoadFontFromCacheTests: XCTestCase {
         })
     }
 
-    func test_load_deliversNoImagesOnCacheExpiration() {
+    func test_load_deliversNoDataOnCacheExpiration() {
         let font = uniqueFonts()
         let fixedCurrentDate = Date()
         let expirationTimestamp = fixedCurrentDate.minusCacheMaxAge()
@@ -73,7 +73,7 @@ final class LoadFontFromCacheTests: XCTestCase {
         })
     }
 
-    func test_load_deliversNoImagesOnExpiredCache() {
+    func test_load_deliversNoDataOnExpiredCache() {
         let font = uniqueFonts()
         let fixedCurrentDate = Date()
         let expiredTimestamp = fixedCurrentDate.minusCacheMaxAge().adding(seconds: -1)
@@ -167,8 +167,8 @@ final class LoadFontFromCacheTests: XCTestCase {
 
         sut.load { receivedResult in
             switch (receivedResult, expectedResult) {
-            case let (.success(receivedImages), .success(expectedImages)):
-                XCTAssertEqual(receivedImages, expectedImages, file: file, line: line)
+            case let (.success(receivedData), .success(expectedData)):
+                XCTAssertEqual(receivedData, expectedData, file: file, line: line)
 
             case let (.failure(receivedError as NSError), .failure(expectedError as NSError)):
                 XCTAssertEqual(receivedError, expectedError, file: file, line: line)
@@ -182,17 +182,6 @@ final class LoadFontFromCacheTests: XCTestCase {
 
         action()
         wait(for: [exp], timeout: 1.0)
-    }
-    
-    func _uniqueFont() -> Font {
-        return Font(name: UUID().uuidString, variants: [
-            Variant(name: UUID().uuidString, fileURL: anyURL())
-        ], subsets: [UUID().uuidString], category: UUID().uuidString)
-    }
-    
-    func uniqueFonts() -> (models: [Font], local: [LocalFont]) {
-       let models = [_uniqueFont(), _uniqueFont()]
-        return (models, models.toLocals())
     }
 
     class StoreSpy: Store {

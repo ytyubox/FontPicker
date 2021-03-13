@@ -14,7 +14,7 @@ import LoadingSystem
 extension Font: AModel {
     public var local: LocalFont {
         LocalFont(name: name, variants: variants.map{
-            .init(name:$0.name, fileURL: $0.fileURL)
+            .init(name:$0.name, fileURL: $0.fileURL, data: nil)
         }, subsets: subsets, category: category)
     }
 }

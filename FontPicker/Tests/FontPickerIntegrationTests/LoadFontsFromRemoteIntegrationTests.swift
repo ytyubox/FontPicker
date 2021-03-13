@@ -28,16 +28,16 @@ final class LoadFontsFromRemoteIntegrationTests: XCTestCase {
         }
     }
 
-    func test_endToEndTestServerGETfontImageDataResult_matchesFixedTestAccountData() {
-        switch getFontImageDataResult() {
+    func test_endToEndTestServerGETfontFileDataResult_matchesFixedTestAccountData() {
+        switch getFontFileDataResult() {
         case let .success(data)?:
-            XCTAssertFalse(data.isEmpty, "Expected non-empty image data")
+            XCTAssertFalse(data.isEmpty, "Expected non-empty file data")
 
         case let .failure(error)?:
-            XCTFail("Expected successful image data result, got \(error) instead")
+            XCTFail("Expected successful file data result, got \(error) instead")
 
         default:
-            XCTFail("Expected successful image data result, got no result instead")
+            XCTFail("Expected successful file data result, got no result instead")
         }
     }
 
@@ -65,7 +65,7 @@ final class LoadFontsFromRemoteIntegrationTests: XCTestCase {
         return receivedResult
     }
 
-    private func getFontImageDataResult(file: StaticString = #file, line: UInt = #line) -> RemoteFontFileLoader.Outcome? {
+    private func getFontFileDataResult(file: StaticString = #file, line: UInt = #line) -> RemoteFontFileLoader.Outcome? {
         let url = abeezee_Font_From_gstatic_Wedsite
         let loader = RemoteFontFileLoader(client: ephemeralClient())
         trackForMemoryLeaks(loader, file: file, line: line)
