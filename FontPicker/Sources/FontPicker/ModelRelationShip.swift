@@ -10,14 +10,13 @@
 
 import LoadingSystem
 
+
 extension Font: AModel {
-    public var local: Never {
-        fatalError("Yet")
+    public var local: LocalFont {
+        LocalFont(name: name, variants: variants.map{
+            .init(name:$0.name, fileURL: $0.fileURL)
+        }, subsets: subsets, category: category)
     }
-    
-    public typealias Local = Never
-    
-    
 }
 extension RemoteFont: RemoteModel {
     public var model: Font {
@@ -32,4 +31,14 @@ extension RemoteFont: RemoteModel {
     public typealias Model = Font
     
     
+}
+extension LocalFont: LocalModel {
+    var variantsModel: [Variant] {
+        variants.map{
+            Variant(name: $0.name, fileURL: $0.fileURL)
+        }
+    }
+    public var model: Font {
+        Font(name: name, variants: variantsModel, subsets: subsets, category: category)
+    }
 }

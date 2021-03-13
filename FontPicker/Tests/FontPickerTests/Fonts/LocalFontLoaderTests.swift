@@ -13,24 +13,9 @@ import LoadingSystem
 import TestUtils
 import FontPicker
 
-public struct LocalFont:Equatable {
-    
-}
 
-public final class LocalFontLoader<AStore: Store>: LocalLoader<[Font], AStore> where AStore.Local == LocalFont {
-    public convenience init(store: AStore, currentDate: @escaping () -> Date) {
-        self.init(store: store, currentDate: currentDate) {
-            cache in
-            cache.item.toModels()
-        }
-    }
-}
 
-extension LocalFont: LocalModel {
-    public var model: Font {
-        Font(name: "", variants: [], subsets: [], category: "")
-    }
-}
+
 
 
 final class LoadFontFromCacheTests: XCTestCase {
@@ -67,7 +52,7 @@ final class LoadFontFromCacheTests: XCTestCase {
     }
 
     func test_load_deliversCachedImagesOnNonExpiredCache() {
-        let font = uniqueFont()
+        let font = uniqueFonts()
         let fixedCurrentDate = Date()
         let nonExpiredTimestamp = fixedCurrentDate.minusCacheMaxAge().adding(seconds: 1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -78,7 +63,7 @@ final class LoadFontFromCacheTests: XCTestCase {
     }
 
     func test_load_deliversNoImagesOnCacheExpiration() {
-        let font = uniqueFont()
+        let font = uniqueFonts()
         let fixedCurrentDate = Date()
         let expirationTimestamp = fixedCurrentDate.minusCacheMaxAge()
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -89,7 +74,7 @@ final class LoadFontFromCacheTests: XCTestCase {
     }
 
     func test_load_deliversNoImagesOnExpiredCache() {
-        let font = uniqueFont()
+        let font = uniqueFonts()
         let fixedCurrentDate = Date()
         let expiredTimestamp = fixedCurrentDate.minusCacheMaxAge().adding(seconds: -1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -118,7 +103,7 @@ final class LoadFontFromCacheTests: XCTestCase {
     }
 
     func test_load_hasNoSideEffectsOnNonExpiredCache() {
-        let font = uniqueFont()
+        let font = uniqueFonts()
         let fixedCurrentDate = Date()
         let nonExpiredTimestamp = fixedCurrentDate.minusCacheMaxAge().adding(seconds: 1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -130,7 +115,7 @@ final class LoadFontFromCacheTests: XCTestCase {
     }
 
     func test_load_hasNoSideEffectsOnCacheExpiration() {
-        let font = uniqueFont()
+        let font = uniqueFonts()
         let fixedCurrentDate = Date()
         let expirationTimestamp = fixedCurrentDate.minusCacheMaxAge()
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -142,8 +127,7 @@ final class LoadFontFromCacheTests: XCTestCase {
     }
 
     func test_load_hasNoSideEffectsOnExpiredCache() {
-        let font
-            = uniqueFont()
+        let font = uniqueFonts()
         let fixedCurrentDate = Date()
         let expiredTimestamp = fixedCurrentDate.minusCacheMaxAge().adding(seconds: -1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -200,9 +184,15 @@ final class LoadFontFromCacheTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    func uniqueFont() -> (models: [Font], local: [LocalFont]) {
-       
-        return ([], [])
+    func _uniqueFont() -> Font {
+        return Font(name: UUID().uuidString, variants: [
+            Variant(name: UUID().uuidString, fileURL: anyURL())
+        ], subsets: [UUID().uuidString], category: UUID().uuidString)
+    }
+    
+    func uniqueFonts() -> (models: [Font], local: [LocalFont]) {
+       let models = [_uniqueFont(), _uniqueFont()]
+        return (models, models.toLocals())
     }
 
     class StoreSpy: Store {
@@ -266,7 +256,7 @@ final class LoadFontFromCacheTests: XCTestCase {
 }
 
 
-extension Date {
+private extension Date {
     func minusCacheMaxAge() -> Date {
         return adding(days: -fontCacheMaxAgeInDays)
     }
@@ -280,7 +270,7 @@ extension Date {
     }
 }
 
-extension Date {
+private extension Date {
     func adding(seconds: TimeInterval) -> Date {
         return self + seconds
     }
