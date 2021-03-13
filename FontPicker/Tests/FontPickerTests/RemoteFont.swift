@@ -11,7 +11,7 @@ import Foundation
 
 // MARK: - Item
 
-public struct RemoteFont: Codable {
+public struct RemoteFont: Codable, Equatable {
     let family: String
     let variants: [String]
     let subsets: [String]
