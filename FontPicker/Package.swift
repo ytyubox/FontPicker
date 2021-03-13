@@ -10,20 +10,17 @@ let package = Package(
             targets: ["FontPicker"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ytyubox/LoadingSystem", from: "1.0.0")
+        .package(url: "https://github.com/ytyubox/LoadingSystem", from: "1.0.0"),
+        .package(url: "https://github.com/ytyubox/TestUtils", from: "1.0.0")
     ],
     targets: [
         .target(
             name: "FontPicker",
-            dependencies: []),
+            dependencies: [
+            ]),
         .testTarget(
             name: "FontPickerTests",
-            dependencies: ["FontPicker", "LoadingSystem"]
-        ),
-        .testTarget(
-            name: "FontPickerIntegrationTests",
-            dependencies: ["FontPicker", "LoadingSystem"],
-            resources: [.process("Resources")]
+            dependencies: ["FontPicker", "LoadingSystem", "TestUtils"]
         ),
     ]
 )

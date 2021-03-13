@@ -1,13 +1,13 @@
 import Foundation
 public struct Font {
-    let name:String
-    let variants: [Variant]
-    let subsets:String
-    let category:String
+    public let name:String
+    public let variants: [Variant]
+    public let subsets:String
+    public let category:String
 
 }
 
-struct Variant {
-    let name: String
-    let fileURL: URL
+public struct Variant {
+    public let name: String
+    public let fileURL: URL
 }

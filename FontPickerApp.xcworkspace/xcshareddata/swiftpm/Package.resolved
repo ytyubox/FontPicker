@@ -9,6 +9,15 @@
           "revision": "c491684a8820c8438e1928a1953f8bc317fc8c86",
           "version": "1.0.0"
         }
+      },
+      {
+        "package": "TestUtils",
+        "repositoryURL": "https://github.com/ytyubox/TestUtils",
+        "state": {
+          "branch": null,
+          "revision": "dee5c5d1c9673123cef4ad6e7a2dd0cc090efc59",
+          "version": "1.0.3"
+        }
       }
     ]
   },
