@@ -12,6 +12,7 @@
 		D2C1891F25FA162300B86D82 /* FontPicker in Frameworks */ = {isa = PBXBuildFile; productRef = D2C1891E25FA162300B86D82 /* FontPicker */; };
 		D2C1892725FA165100B86D82 /* FontsSystemIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C1892625FA165100B86D82 /* FontsSystemIntegrationTests.swift */; };
 		D2C1892925FA165100B86D82 /* FontsSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C188F625FA13B200B86D82 /* FontsSystem.framework */; };
+		D2DFCAB325FC708000DA4E6E /* FontPicker in Frameworks */ = {isa = PBXBuildFile; productRef = D2DFCAB225FC708000DA4E6E /* FontPicker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2DFCAB325FC708000DA4E6E /* FontPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +155,9 @@
 			dependencies = (
 			);
 			name = FontsSystem;
+			packageProductDependencies = (
+				D2DFCAB225FC708000DA4E6E /* FontPicker */,
+			);
 			productName = FontsSystem;
 			productReference = D2C188F625FA13B200B86D82 /* FontsSystem.framework */;
 			productType = "com.apple.product-type.framework";
@@ -586,6 +591,10 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		D2C1891E25FA162300B86D82 /* FontPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FontPicker;
+		};
+		D2DFCAB225FC708000DA4E6E /* FontPicker */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FontPicker;
 		};

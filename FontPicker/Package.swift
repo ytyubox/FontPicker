@@ -8,7 +8,8 @@ let package = Package(
     products: [
         .library(
             name: "FontPicker",
-            targets: ["FontPicker"]),
+            targets: ["FontPicker"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/ytyubox/LoadingSystem", from: "1.0.0"),
@@ -19,7 +20,9 @@ let package = Package(
         .target(
             name: "FontPicker",
             dependencies: [
-            ]),
+                "LoadingSystem",
+            ]
+        ),
         .testTarget(
             name: "FontPickerTests",
             dependencies: ["FontPicker", "LoadingSystem", "TestUtils", "Difference"]
