@@ -127,6 +127,19 @@ final class LoadFontsFromRemoteTests: XCTestCase {
             client.complete(withStatusCode: 200, data: json)
         })
     }
+    func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
+        let url = URL(string: "http://any-url.com")!
+        let client = HTTPClientSpy()
+        var sut: SUT? = RemoteFontLoader(url: url, client: client)
+
+        var capturedResults = [SUT.Outcome]()
+        sut?.load { capturedResults.append($0) }
+
+        sut = nil
+        client.complete(withStatusCode: 200, data: makeItemsJSON([]))
+
+        XCTAssertTrue(capturedResults.isEmpty)
+    }
 
 
     // MARK: - Helper
