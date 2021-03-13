@@ -10,6 +10,7 @@
 
 import XCTest
 import LoadingSystem
+import TestUtils
 import FontPicker
 
 final class LoadFontsFromRemoteIntegrationTests: XCTestCase {

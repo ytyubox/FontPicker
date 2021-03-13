@@ -27,5 +27,9 @@ let package = Package(
             name: "FontPickerTests",
             dependencies: ["FontPicker", "LoadingSystem", "TestUtils", "Difference"]
         ),
+        .testTarget(
+            name: "FontPickerIntegrationTests",
+            dependencies: ["FontPicker", "LoadingSystem", "TestUtils"]
+        ),
     ]
 )
