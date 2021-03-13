@@ -1,5 +1,5 @@
 import Foundation
-public struct Font:Equatable {
+public struct Font:Hashable {
     
     public init(name: String, variants: [Variant], subsets: [String], category: String) {
         self.name = name
@@ -15,7 +15,7 @@ public struct Font:Equatable {
 
 }
 
-public struct Variant:Equatable {
+public struct Variant:Hashable {
     public init(name: String, fileURL: URL) {
         self.name = name
         self.fileURL = fileURL

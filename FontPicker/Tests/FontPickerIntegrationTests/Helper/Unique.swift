@@ -11,7 +11,7 @@ import FontPicker
 import Foundation
 import TestUtils
 
-private func _uniqueFont(id: Int) -> Font {
+func uniqueFont(id: Int) -> Font {
     return
         Font(
             name: "font \(id)",
@@ -24,6 +24,6 @@ private func _uniqueFont(id: Int) -> Font {
 }
 
 func uniqueFonts() -> (models: [Font], local: [LocalFont]) {
-    let models = [_uniqueFont(id: 1), _uniqueFont(id: 2)]
+    let models = [uniqueFont(id: 1), uniqueFont(id: 2)]
     return (models, models.toLocals())
 }
