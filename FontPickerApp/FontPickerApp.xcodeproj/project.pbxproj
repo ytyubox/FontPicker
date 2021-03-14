@@ -14,35 +14,35 @@
 		D22E7D4125FE0C3D00A18255 /* FontLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D3D25FE0C3D00A18255 /* FontLoaderCacheDecorator.swift */; };
 		D22E7D4225FE0C3D00A18255 /* FontLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D3E25FE0C3D00A18255 /* FontLoaderWithFallbackComposite.swift */; };
 		D22E7D4B25FE0E1B00A18255 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D4A25FE0E1B00A18255 /* AppContainer.swift */; };
-		D22E7D4E25FE0F0700A18255 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D4D25FE0F0700A18255 /* FeedStore.swift */; };
+		D22E7D4E25FE0F0700A18255 /* FontStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D4D25FE0F0700A18255 /* FontStore.swift */; };
 		D22E7D5125FE0FE100A18255 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D5025FE0FE100A18255 /* Root.swift */; };
-		D22E7D5425FE136200A18255 /* AppFeedStoreAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D5325FE136200A18255 /* AppFeedStoreAdapter.swift */; };
+		D22E7D5425FE136200A18255 /* AppFontStoreAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D5325FE136200A18255 /* AppFontStoreAdapter.swift */; };
 		D22E7D6125FE17DD00A18255 /* MustInjected.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D5A25FE17DD00A18255 /* MustInjected.swift */; };
-		D22E7D6225FE17DD00A18255 /* FeedImageDataPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D5B25FE17DD00A18255 /* FeedImageDataPresentationAdapter.swift */; };
+		D22E7D6225FE17DD00A18255 /* FontImageDataPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D5B25FE17DD00A18255 /* FontImageDataPresentationAdapter.swift */; };
 		D22E7D6325FE17DD00A18255 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D5C25FE17DD00A18255 /* MainQueueDispatchDecorator.swift */; };
-		D22E7D6425FE17DD00A18255 /* FeedLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D5D25FE17DD00A18255 /* FeedLoaderPresentationAdapter.swift */; };
-		D22E7D6525FE17DD00A18255 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D5E25FE17DD00A18255 /* FeedUIComposer.swift */; };
-		D22E7D6625FE17DD00A18255 /* FeedViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D5F25FE17DD00A18255 /* FeedViewAdapter.swift */; };
+		D22E7D6425FE17DD00A18255 /* FontLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D5D25FE17DD00A18255 /* FontLoaderPresentationAdapter.swift */; };
+		D22E7D6525FE17DD00A18255 /* FontUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D5E25FE17DD00A18255 /* FontUIComposer.swift */; };
+		D22E7D6625FE17DD00A18255 /* FontViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D5F25FE17DD00A18255 /* FontViewAdapter.swift */; };
 		D22E7D6725FE17DD00A18255 /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D6025FE17DD00A18255 /* WeakRefVirtualProxy.swift */; };
 		D22E7DAF25FE2F2100A18255 /* FontPickeriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22E7DAE25FE2F2100A18255 /* FontPickeriOS.framework */; };
 		D22E7DB025FE2F2100A18255 /* FontPickeriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D22E7DAE25FE2F2100A18255 /* FontPickeriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D24F8D8625FE301100E1A21A /* FeedUIIntegrationTests+LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7525FE301100E1A21A /* FeedUIIntegrationTests+LoaderSpy.swift */; };
-		D24F8D8725FE301100E1A21A /* FeedUIIntegrationTests+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7625FE301100E1A21A /* FeedUIIntegrationTests+Localization.swift */; };
+		D24F8D8625FE301100E1A21A /* FontUIIntegrationTests+LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7525FE301100E1A21A /* FontUIIntegrationTests+LoaderSpy.swift */; };
+		D24F8D8725FE301100E1A21A /* FontUIIntegrationTests+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7625FE301100E1A21A /* FontUIIntegrationTests+Localization.swift */; };
 		D24F8D8825FE301100E1A21A /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7725FE301100E1A21A /* SharedTestHelpers.swift */; };
 		D24F8D8925FE301100E1A21A /* UIButton+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7825FE301100E1A21A /* UIButton+TestHelpers.swift */; };
-		D24F8D8A25FE301100E1A21A /* FeedUIIntegrationTests+Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7925FE301100E1A21A /* FeedUIIntegrationTests+Assertions.swift */; };
-		D24F8D8B25FE301100E1A21A /* FeedImageCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7A25FE301100E1A21A /* FeedImageCell+TestHelpers.swift */; };
-		D24F8D8C25FE301100E1A21A /* InMemoryFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7B25FE301100E1A21A /* InMemoryFeedStore.swift */; };
+		D24F8D8A25FE301100E1A21A /* FontUIIntegrationTests+Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7925FE301100E1A21A /* FontUIIntegrationTests+Assertions.swift */; };
+		D24F8D8B25FE301100E1A21A /* FontImageCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7A25FE301100E1A21A /* FontImageCell+TestHelpers.swift */; };
+		D24F8D8C25FE301100E1A21A /* InMemoryFontStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7B25FE301100E1A21A /* InMemoryFontStore.swift */; };
 		D24F8D8D25FE301100E1A21A /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7C25FE301100E1A21A /* XCTestCase+MemoryLeakTracking.swift */; };
 		D24F8D8E25FE301100E1A21A /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7D25FE301100E1A21A /* UIImage+TestHelpers.swift */; };
 		D24F8D8F25FE301100E1A21A /* UIControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7E25FE301100E1A21A /* UIControl+TestHelpers.swift */; };
 		D24F8D9025FE301100E1A21A /* HTTPClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D7F25FE301100E1A21A /* HTTPClientStub.swift */; };
-		D24F8D9125FE301100E1A21A /* FeedViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D8025FE301100E1A21A /* FeedViewController+TestHelpers.swift */; };
+		D24F8D9125FE301100E1A21A /* FontViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D8025FE301100E1A21A /* FontViewController+TestHelpers.swift */; };
 		D24F8D9225FE301100E1A21A /* UIView+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D8125FE301100E1A21A /* UIView+TestHelpers.swift */; };
 		D24F8D9325FE301100E1A21A /* UIRefreshControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D8225FE301100E1A21A /* UIRefreshControl+TestHelpers.swift */; };
-		D24F8D9425FE301100E1A21A /* FeedAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D8325FE301100E1A21A /* FeedAcceptanceTests.swift */; };
+		D24F8D9425FE301100E1A21A /* FontAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D8325FE301100E1A21A /* FontAcceptanceTests.swift */; };
 		D24F8D9525FE301100E1A21A /* SceneDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D8425FE301100E1A21A /* SceneDelegateTests.swift */; };
-		D24F8D9625FE301100E1A21A /* FeedUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D8525FE301100E1A21A /* FeedUIIntegrationTests.swift */; };
+		D24F8D9625FE301100E1A21A /* FontUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F8D8525FE301100E1A21A /* FontUIIntegrationTests.swift */; };
 		D2C188A125FA044900B86D82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C188A025FA044900B86D82 /* AppDelegate.swift */; };
 		D2C188A325FA044900B86D82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C188A225FA044900B86D82 /* SceneDelegate.swift */; };
 		D2C188A825FA044900B86D82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C188A625FA044900B86D82 /* Main.storyboard */; };
@@ -86,34 +86,34 @@
 		D22E7D3D25FE0C3D00A18255 /* FontLoaderCacheDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 		D22E7D3E25FE0C3D00A18255 /* FontLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 		D22E7D4A25FE0E1B00A18255 /* AppContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
-		D22E7D4D25FE0F0700A18255 /* FeedStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
+		D22E7D4D25FE0F0700A18255 /* FontStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontStore.swift; sourceTree = "<group>"; };
 		D22E7D5025FE0FE100A18255 /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
-		D22E7D5325FE136200A18255 /* AppFeedStoreAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFeedStoreAdapter.swift; sourceTree = "<group>"; };
+		D22E7D5325FE136200A18255 /* AppFontStoreAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFontStoreAdapter.swift; sourceTree = "<group>"; };
 		D22E7D5A25FE17DD00A18255 /* MustInjected.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MustInjected.swift; sourceTree = "<group>"; };
-		D22E7D5B25FE17DD00A18255 /* FeedImageDataPresentationAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedImageDataPresentationAdapter.swift; sourceTree = "<group>"; };
+		D22E7D5B25FE17DD00A18255 /* FontImageDataPresentationAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontImageDataPresentationAdapter.swift; sourceTree = "<group>"; };
 		D22E7D5C25FE17DD00A18255 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
-		D22E7D5D25FE17DD00A18255 /* FeedLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
-		D22E7D5E25FE17DD00A18255 /* FeedUIComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
-		D22E7D5F25FE17DD00A18255 /* FeedViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewAdapter.swift; sourceTree = "<group>"; };
+		D22E7D5D25FE17DD00A18255 /* FontLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
+		D22E7D5E25FE17DD00A18255 /* FontUIComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontUIComposer.swift; sourceTree = "<group>"; };
+		D22E7D5F25FE17DD00A18255 /* FontViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontViewAdapter.swift; sourceTree = "<group>"; };
 		D22E7D6025FE17DD00A18255 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
 		D22E7DAE25FE2F2100A18255 /* FontPickeriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FontPickeriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D24F8D7525FE301100E1A21A /* FeedUIIntegrationTests+LoaderSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedUIIntegrationTests+LoaderSpy.swift"; sourceTree = "<group>"; };
-		D24F8D7625FE301100E1A21A /* FeedUIIntegrationTests+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedUIIntegrationTests+Localization.swift"; sourceTree = "<group>"; };
+		D24F8D7525FE301100E1A21A /* FontUIIntegrationTests+LoaderSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FontUIIntegrationTests+LoaderSpy.swift"; sourceTree = "<group>"; };
+		D24F8D7625FE301100E1A21A /* FontUIIntegrationTests+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FontUIIntegrationTests+Localization.swift"; sourceTree = "<group>"; };
 		D24F8D7725FE301100E1A21A /* SharedTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		D24F8D7825FE301100E1A21A /* UIButton+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+TestHelpers.swift"; sourceTree = "<group>"; };
-		D24F8D7925FE301100E1A21A /* FeedUIIntegrationTests+Assertions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedUIIntegrationTests+Assertions.swift"; sourceTree = "<group>"; };
-		D24F8D7A25FE301100E1A21A /* FeedImageCell+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedImageCell+TestHelpers.swift"; sourceTree = "<group>"; };
-		D24F8D7B25FE301100E1A21A /* InMemoryFeedStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryFeedStore.swift; sourceTree = "<group>"; };
+		D24F8D7925FE301100E1A21A /* FontUIIntegrationTests+Assertions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FontUIIntegrationTests+Assertions.swift"; sourceTree = "<group>"; };
+		D24F8D7A25FE301100E1A21A /* FontImageCell+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FontImageCell+TestHelpers.swift"; sourceTree = "<group>"; };
+		D24F8D7B25FE301100E1A21A /* InMemoryFontStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryFontStore.swift; sourceTree = "<group>"; };
 		D24F8D7C25FE301100E1A21A /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		D24F8D7D25FE301100E1A21A /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
 		D24F8D7E25FE301100E1A21A /* UIControl+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+TestHelpers.swift"; sourceTree = "<group>"; };
 		D24F8D7F25FE301100E1A21A /* HTTPClientStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClientStub.swift; sourceTree = "<group>"; };
-		D24F8D8025FE301100E1A21A /* FeedViewController+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedViewController+TestHelpers.swift"; sourceTree = "<group>"; };
+		D24F8D8025FE301100E1A21A /* FontViewController+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FontViewController+TestHelpers.swift"; sourceTree = "<group>"; };
 		D24F8D8125FE301100E1A21A /* UIView+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+TestHelpers.swift"; sourceTree = "<group>"; };
 		D24F8D8225FE301100E1A21A /* UIRefreshControl+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+TestHelpers.swift"; sourceTree = "<group>"; };
-		D24F8D8325FE301100E1A21A /* FeedAcceptanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedAcceptanceTests.swift; sourceTree = "<group>"; };
+		D24F8D8325FE301100E1A21A /* FontAcceptanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAcceptanceTests.swift; sourceTree = "<group>"; };
 		D24F8D8425FE301100E1A21A /* SceneDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
-		D24F8D8525FE301100E1A21A /* FeedUIIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedUIIntegrationTests.swift; sourceTree = "<group>"; };
+		D24F8D8525FE301100E1A21A /* FontUIIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontUIIntegrationTests.swift; sourceTree = "<group>"; };
 		D2C1889D25FA044900B86D82 /* FontPickerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FontPickerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C188A025FA044900B86D82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2C188A225FA044900B86D82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,8 +158,8 @@
 		D22E7D4425FE0C4400A18255 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				D22E7D5325FE136200A18255 /* AppFeedStoreAdapter.swift */,
-				D22E7D4D25FE0F0700A18255 /* FeedStore.swift */,
+				D22E7D5325FE136200A18255 /* AppFontStoreAdapter.swift */,
+				D22E7D4D25FE0F0700A18255 /* FontStore.swift */,
 				D22E7D3B25FE0C3D00A18255 /* FontFileLoaderCacheDecorator.swift */,
 				D22E7D3C25FE0C3D00A18255 /* FontFileLoaderWithFallbackComposite.swift */,
 				D22E7D3D25FE0C3D00A18255 /* FontLoaderCacheDecorator.swift */,
@@ -171,10 +171,10 @@
 		D22E7D5925FE17D300A18255 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
-				D22E7D5B25FE17DD00A18255 /* FeedImageDataPresentationAdapter.swift */,
-				D22E7D5D25FE17DD00A18255 /* FeedLoaderPresentationAdapter.swift */,
-				D22E7D5E25FE17DD00A18255 /* FeedUIComposer.swift */,
-				D22E7D5F25FE17DD00A18255 /* FeedViewAdapter.swift */,
+				D22E7D5B25FE17DD00A18255 /* FontImageDataPresentationAdapter.swift */,
+				D22E7D5D25FE17DD00A18255 /* FontLoaderPresentationAdapter.swift */,
+				D22E7D5E25FE17DD00A18255 /* FontUIComposer.swift */,
+				D22E7D5F25FE17DD00A18255 /* FontViewAdapter.swift */,
 				D22E7D5C25FE17DD00A18255 /* MainQueueDispatchDecorator.swift */,
 				D22E7D5A25FE17DD00A18255 /* MustInjected.swift */,
 				D22E7D6025FE17DD00A18255 /* WeakRefVirtualProxy.swift */,
@@ -185,18 +185,18 @@
 		D24F8D7425FE301100E1A21A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D24F8D7525FE301100E1A21A /* FeedUIIntegrationTests+LoaderSpy.swift */,
-				D24F8D7625FE301100E1A21A /* FeedUIIntegrationTests+Localization.swift */,
+				D24F8D7525FE301100E1A21A /* FontUIIntegrationTests+LoaderSpy.swift */,
+				D24F8D7625FE301100E1A21A /* FontUIIntegrationTests+Localization.swift */,
 				D24F8D7725FE301100E1A21A /* SharedTestHelpers.swift */,
 				D24F8D7825FE301100E1A21A /* UIButton+TestHelpers.swift */,
-				D24F8D7925FE301100E1A21A /* FeedUIIntegrationTests+Assertions.swift */,
-				D24F8D7A25FE301100E1A21A /* FeedImageCell+TestHelpers.swift */,
-				D24F8D7B25FE301100E1A21A /* InMemoryFeedStore.swift */,
+				D24F8D7925FE301100E1A21A /* FontUIIntegrationTests+Assertions.swift */,
+				D24F8D7A25FE301100E1A21A /* FontImageCell+TestHelpers.swift */,
+				D24F8D7B25FE301100E1A21A /* InMemoryFontStore.swift */,
 				D24F8D7C25FE301100E1A21A /* XCTestCase+MemoryLeakTracking.swift */,
 				D24F8D7D25FE301100E1A21A /* UIImage+TestHelpers.swift */,
 				D24F8D7E25FE301100E1A21A /* UIControl+TestHelpers.swift */,
 				D24F8D7F25FE301100E1A21A /* HTTPClientStub.swift */,
-				D24F8D8025FE301100E1A21A /* FeedViewController+TestHelpers.swift */,
+				D24F8D8025FE301100E1A21A /* FontViewController+TestHelpers.swift */,
 				D24F8D8125FE301100E1A21A /* UIView+TestHelpers.swift */,
 				D24F8D8225FE301100E1A21A /* UIRefreshControl+TestHelpers.swift */,
 			);
@@ -245,8 +245,8 @@
 		D2C188B625FA044900B86D82 /* FontPickerAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				D24F8D8325FE301100E1A21A /* FeedAcceptanceTests.swift */,
-				D24F8D8525FE301100E1A21A /* FeedUIIntegrationTests.swift */,
+				D24F8D8325FE301100E1A21A /* FontAcceptanceTests.swift */,
+				D24F8D8525FE301100E1A21A /* FontUIIntegrationTests.swift */,
 				D24F8D7425FE301100E1A21A /* Helpers */,
 				D24F8D8425FE301100E1A21A /* SceneDelegateTests.swift */,
 				D2C188B725FA044900B86D82 /* FontPickerAppAPIEndToEndTests.swift */,
@@ -358,21 +358,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				D22E7D6125FE17DD00A18255 /* MustInjected.swift in Sources */,
-				D22E7D4E25FE0F0700A18255 /* FeedStore.swift in Sources */,
+				D22E7D4E25FE0F0700A18255 /* FontStore.swift in Sources */,
 				D22E7D4B25FE0E1B00A18255 /* AppContainer.swift in Sources */,
 				D22E7D4225FE0C3D00A18255 /* FontLoaderWithFallbackComposite.swift in Sources */,
 				D22E7D4025FE0C3D00A18255 /* FontFileLoaderWithFallbackComposite.swift in Sources */,
-				D22E7D6425FE17DD00A18255 /* FeedLoaderPresentationAdapter.swift in Sources */,
+				D22E7D6425FE17DD00A18255 /* FontLoaderPresentationAdapter.swift in Sources */,
 				D22E7D3F25FE0C3D00A18255 /* FontFileLoaderCacheDecorator.swift in Sources */,
-				D22E7D6225FE17DD00A18255 /* FeedImageDataPresentationAdapter.swift in Sources */,
-				D22E7D6525FE17DD00A18255 /* FeedUIComposer.swift in Sources */,
+				D22E7D6225FE17DD00A18255 /* FontImageDataPresentationAdapter.swift in Sources */,
+				D22E7D6525FE17DD00A18255 /* FontUIComposer.swift in Sources */,
 				D22E7D6325FE17DD00A18255 /* MainQueueDispatchDecorator.swift in Sources */,
 				D22E7D4125FE0C3D00A18255 /* FontLoaderCacheDecorator.swift in Sources */,
 				D2107A7A25FE6C560070EDA3 /* UIFont+Data.swift in Sources */,
 				D2C188A125FA044900B86D82 /* AppDelegate.swift in Sources */,
-				D22E7D5425FE136200A18255 /* AppFeedStoreAdapter.swift in Sources */,
+				D22E7D5425FE136200A18255 /* AppFontStoreAdapter.swift in Sources */,
 				D2107A7625FE67370070EDA3 /* Logger.swift in Sources */,
-				D22E7D6625FE17DD00A18255 /* FeedViewAdapter.swift in Sources */,
+				D22E7D6625FE17DD00A18255 /* FontViewAdapter.swift in Sources */,
 				D2C188A325FA044900B86D82 /* SceneDelegate.swift in Sources */,
 				D22E7D6725FE17DD00A18255 /* WeakRefVirtualProxy.swift in Sources */,
 				D22E7D5125FE0FE100A18255 /* Root.swift in Sources */,
@@ -385,22 +385,22 @@
 			files = (
 				D24F8D9025FE301100E1A21A /* HTTPClientStub.swift in Sources */,
 				D24F8D9325FE301100E1A21A /* UIRefreshControl+TestHelpers.swift in Sources */,
-				D24F8D9425FE301100E1A21A /* FeedAcceptanceTests.swift in Sources */,
+				D24F8D9425FE301100E1A21A /* FontAcceptanceTests.swift in Sources */,
 				D24F8D8825FE301100E1A21A /* SharedTestHelpers.swift in Sources */,
-				D24F8D9625FE301100E1A21A /* FeedUIIntegrationTests.swift in Sources */,
-				D24F8D8A25FE301100E1A21A /* FeedUIIntegrationTests+Assertions.swift in Sources */,
+				D24F8D9625FE301100E1A21A /* FontUIIntegrationTests.swift in Sources */,
+				D24F8D8A25FE301100E1A21A /* FontUIIntegrationTests+Assertions.swift in Sources */,
 				D24F8D9525FE301100E1A21A /* SceneDelegateTests.swift in Sources */,
 				D24F8D8D25FE301100E1A21A /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				D24F8D8F25FE301100E1A21A /* UIControl+TestHelpers.swift in Sources */,
 				D24F8D8E25FE301100E1A21A /* UIImage+TestHelpers.swift in Sources */,
 				D24F8D8925FE301100E1A21A /* UIButton+TestHelpers.swift in Sources */,
-				D24F8D9125FE301100E1A21A /* FeedViewController+TestHelpers.swift in Sources */,
+				D24F8D9125FE301100E1A21A /* FontViewController+TestHelpers.swift in Sources */,
 				D24F8D9225FE301100E1A21A /* UIView+TestHelpers.swift in Sources */,
-				D24F8D8C25FE301100E1A21A /* InMemoryFeedStore.swift in Sources */,
-				D24F8D8625FE301100E1A21A /* FeedUIIntegrationTests+LoaderSpy.swift in Sources */,
+				D24F8D8C25FE301100E1A21A /* InMemoryFontStore.swift in Sources */,
+				D24F8D8625FE301100E1A21A /* FontUIIntegrationTests+LoaderSpy.swift in Sources */,
 				D2C188B825FA044900B86D82 /* FontPickerAppAPIEndToEndTests.swift in Sources */,
-				D24F8D8B25FE301100E1A21A /* FeedImageCell+TestHelpers.swift in Sources */,
-				D24F8D8725FE301100E1A21A /* FeedUIIntegrationTests+Localization.swift in Sources */,
+				D24F8D8B25FE301100E1A21A /* FontImageCell+TestHelpers.swift in Sources */,
+				D24F8D8725FE301100E1A21A /* FontUIIntegrationTests+Localization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

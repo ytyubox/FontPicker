@@ -9,22 +9,11 @@
 
 import UIKit
 
-class IntroduceSectionController: NSObject, UITableViewDataSource, UITableViewDelegate, TableViewSource {
-    convenience init(content: String) {
-        self.init()
-        self.content = content
-    }
+public class IntroduceSectionController: NSObject, UITableViewDataSource, UITableViewDelegate, TableViewSource {
+  
 
-    var content: String? {
-        set {
-            cell.textLabel?.text = newValue
-        }
-        get {
-            cell.textLabel?.text
-        }
-    }
 
-    func tableView(_: UITableView, titleForHeaderInSection _: Int) -> String? {
+    public func tableView(_: UITableView, titleForHeaderInSection _: Int) -> String? {
         nil
     }
 
@@ -36,11 +25,19 @@ class IntroduceSectionController: NSObject, UITableViewDataSource, UITableViewDe
         return cell
     }()
 
-    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+    public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         1
     }
 
-    func tableView(_: UITableView, cellForRowAt _: IndexPath) -> UITableViewCell {
+    public func tableView(_: UITableView, cellForRowAt _: IndexPath) -> UITableViewCell {
         cell
     }
+    
+    public func display(_ introduction: IntroctionViewModel) {
+        cell.textLabel?.text = introduction.content
+    }
+}
+
+public struct IntroctionViewModel {
+    public let content:String
 }

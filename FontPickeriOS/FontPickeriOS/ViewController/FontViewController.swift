@@ -23,18 +23,9 @@ struct FontViewModel {
 public protocol FontViewControllerDelegate {
     func didRequestRefresh()
 }
-
-let introducing =
-    """
-    A Font Picker for Google Font API
-    Support:
-        1. Off line Picker
-        2. Dynamic font
-        3. Dark mode
-    """
-
+ 
 public final class FontViewController: UITableViewController, UITableViewDataSourcePrefetching {
-    private lazy var firstSection: IntroduceSectionController! = IntroduceSectionController(content: introducing)
+    private lazy var firstSection: IntroduceSectionController! = IntroduceSectionController()
     private var tableModel: [FontGroupController] = [] {
         didSet {
             sectionController = makeSectionControllers()
@@ -113,11 +104,16 @@ public extension FontViewController {
     func display(_ fontGroupControllers: [FontGroupController]) {
         tableModel = fontGroupControllers
     }
+    
 }
 
 extension FontViewController: FontLoadingView {
     public func display(_ viewModel: FontLoadingViewModel) {
         refreshControl?.update(isRefreshing: viewModel.isLoading)
+    }
+    
+    public func display(_ introduction: IntroctionViewModel) {
+        firstSection.display(introduction)
     }
 }
 

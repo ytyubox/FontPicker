@@ -1,3 +1,11 @@
+"APP_INTRODUCTION" = "Google 字型選擇 App
+支援:
+    1. 離線讀取
+    2. 動態文字大小
+    3. 夜間模式
+    4. 多國語系 （中文、英文）
+";
+
 "FONT_VIEW_TITLE" = "Google 字型";
 "FONT_VIEW_CONNECTION_ERROR" = "無法連結伺服器";
 

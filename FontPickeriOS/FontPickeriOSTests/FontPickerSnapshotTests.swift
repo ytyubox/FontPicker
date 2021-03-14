@@ -85,6 +85,13 @@ class FontSnapshotTests: XCTestCase {
         controller.loadViewIfNeeded()
         controller.tableView.showsVerticalScrollIndicator = false
         controller.tableView.showsHorizontalScrollIndicator = false
+        controller.display(IntroctionViewModel(content:
+                        """
+                            Any Introduction
+                            Any Introduction
+                            Any Introduction
+                            """
+                            ))
         return controller
     }
 
