@@ -22,14 +22,33 @@ public protocol FontViewControllerDelegate {
     func didRequestRefresh()
 }
 
+
+let introducing =
+"""
+A Font Picker for Google Font API
+Support:
+    1. Off line Picker
+    2. Dynamic font
+    3. Dark mode
+"""
+
 public final class FontViewController: UITableViewController, UITableViewDataSourcePrefetching {
+    
+    
+    private lazy var firstSection:IntroduceSectionController! = IntroduceSectionController(content: introducing)
     private var tableModel: [FontGroupController] = [] {
         didSet {
             tableView.reloadData()
         }
     }
+    private lazy var sectionController:[TableViewSource] =
+    [
+        [firstSection as TableViewSource],
+        tableModel.map{$0 as TableViewSource}
+    ].flatMap{$0}
+    
 
-    fileprivate var loadingControllers = [IndexPath: FontCellController]()
+    
     public typealias Delegate = FontViewControllerDelegate
     public var delegate: Delegate?
     @IBOutlet public private(set) var errorView: ErrorView!
@@ -49,53 +68,49 @@ public final class FontViewController: UITableViewController, UITableViewDataSou
     }
 
     override public func numberOfSections(in _: UITableView) -> Int {
-        tableModel.count
+        sectionController.count
     }
     
     public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        tableModel[section].name
+        sectionController[section].tableView(tableView, titleForHeaderInSection: section)
     }
 
-    override public func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tableModel[section].tableModel.count
+    override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        sectionController[section].tableView(tableView, numberOfRowsInSection: section)
     }
 
     override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        cellController(forRowAt: indexPath).view(tableView: tableView)
+        sectionController[indexPath.section].tableView(tableView, cellForRowAt: indexPath)
     }
 
-    override public func tableView(_: UITableView, didEndDisplaying _: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cancelCellController(forRowAt: indexPath)
+    override public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        (sectionController[indexPath.section] as? TableViewDisplay)?
+            .tableView(tableView, didEndDisplaying: cell, forRowAt: indexPath)
     }
 
-    public func tableView(_: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+    public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
-            cellController(forRowAt: indexPath).preload()
+            (sectionController[indexPath.section] as? TableViewDisplay)?
+                .tableView(tableView, prefetchRowsAt: [indexPath])
         }
     }
 
-    public func tableView(_: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
-        indexPaths.forEach(cancelCellController(forRowAt:))
+    public func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        
+        indexPaths.forEach { indexPath in
+            (sectionController[indexPath.section] as? TableViewDisplay)?
+                .tableView(tableView, cancelPrefetchingForRowsAt: [indexPath])
+        }
     }
     private func SectionController(forRowAt indexPath: IndexPath) -> FontGroupController {
         tableModel[indexPath.section]
         
     }
-    private func cellController(forRowAt indexPath: IndexPath) -> FontCellController {
-        let controller = SectionController(forRowAt: indexPath).tableModel[indexPath.row]
-        loadingControllers[indexPath] = controller
-        return controller
-    }
-
-    private func cancelCellController(forRowAt indexPath: IndexPath) {
-        loadingControllers[indexPath]?.cancelLoad()
-        loadingControllers[indexPath] = nil
-    }
+   
 }
 
 public extension FontViewController {
     func display(_ fontGroupControllers: [FontGroupController]) {
-        loadingControllers.removeAll(keepingCapacity: true)
         tableModel = fontGroupControllers
     }
 }

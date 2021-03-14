@@ -49,10 +49,17 @@ extension FontCellController: FontFileView {
     public typealias FONT = UIFont
     
     public func display(_ viewModel: Union) {
-        cell?.retryButton.isHidden = viewModel.shouldRetry
+        cell?.retryButton.isHidden = !viewModel.shouldRetry
         cell?.nameLabel.text = viewModel.weight
-        cell?.fontLabel.font = viewModel.font
-        cell?.fontLabel.isHidden = !viewModel.shouldRetry
+        cell?.fontLabel.isHidden = viewModel.font == nil
+        cell?.fontLabel.font = viewModel.font?.dynamicFont(forTextStyle: .body)
     }
 
+}
+
+private extension UIFont {
+    func dynamicFont(forTextStyle style:TextStyle) -> UIFont {
+    UIFontMetrics(forTextStyle: style)
+        .scaledFont(for: self)
+}
 }

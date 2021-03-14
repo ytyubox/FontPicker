@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "DeviceKit",
+        "repositoryURL": "https://github.com/devicekit/DeviceKit.git",
+        "state": {
+          "branch": null,
+          "revision": "4cf9f057db69104851634269f7839f8d0bd346a3",
+          "version": "4.3.0"
+        }
+      },
+      {
         "package": "Difference",
         "repositoryURL": "https://github.com/krzysztofzablocki/Difference.git",
         "state": {
@@ -24,8 +33,8 @@
         "repositoryURL": "https://github.com/ytyubox/TestUtils",
         "state": {
           "branch": null,
-          "revision": "dee5c5d1c9673123cef4ad6e7a2dd0cc090efc59",
-          "version": "1.0.3"
+          "revision": "7068ebf0ddd4c890df9bce5e8e12646f4fea8465",
+          "version": "1.1.0"
         }
       }
     ]

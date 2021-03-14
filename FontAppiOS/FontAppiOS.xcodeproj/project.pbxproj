@@ -7,14 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D206766225FCED280003AAA7 /* FONT_WITH_ERROR_MESSAGE_light-unrecognized.png in Resources */ = {isa = PBXBuildFile; fileRef = D206765A25FCED280003AAA7 /* FONT_WITH_ERROR_MESSAGE_light-unrecognized.png */; };
-		D206766325FCED280003AAA7 /* EMPTY_FONT_dark-unrecognized.png in Resources */ = {isa = PBXBuildFile; fileRef = D206765B25FCED280003AAA7 /* EMPTY_FONT_dark-unrecognized.png */; };
-		D206766425FCED280003AAA7 /* FONT_WITH_FAILED_IMAGE_LOADING_light-unrecognized.png in Resources */ = {isa = PBXBuildFile; fileRef = D206765C25FCED280003AAA7 /* FONT_WITH_FAILED_IMAGE_LOADING_light-unrecognized.png */; };
-		D206766525FCED280003AAA7 /* FONT_WITH_ERROR_MESSAGE_dark-unrecognized.png in Resources */ = {isa = PBXBuildFile; fileRef = D206765D25FCED280003AAA7 /* FONT_WITH_ERROR_MESSAGE_dark-unrecognized.png */; };
-		D206766625FCED280003AAA7 /* FONT_WITH_CONTENT_dark-unrecognized.png in Resources */ = {isa = PBXBuildFile; fileRef = D206765E25FCED280003AAA7 /* FONT_WITH_CONTENT_dark-unrecognized.png */; };
-		D206766725FCED280003AAA7 /* FONT_WITH_FAILED_IMAGE_LOADING_dark-unrecognized.png in Resources */ = {isa = PBXBuildFile; fileRef = D206765F25FCED280003AAA7 /* FONT_WITH_FAILED_IMAGE_LOADING_dark-unrecognized.png */; };
-		D206766825FCED280003AAA7 /* EMPTY_FONT_light-unrecognized.png in Resources */ = {isa = PBXBuildFile; fileRef = D206766025FCED280003AAA7 /* EMPTY_FONT_light-unrecognized.png */; };
-		D206766925FCED280003AAA7 /* FONT_WITH_CONTENT_light-unrecognized.png in Resources */ = {isa = PBXBuildFile; fileRef = D206766125FCED280003AAA7 /* FONT_WITH_CONTENT_light-unrecognized.png */; };
+		D22E7CC525FDFC3C00A18255 /* TableViewSource_TableViewDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7CC425FDFC3C00A18255 /* TableViewSource_TableViewDisplay.swift */; };
+		D230A6BF25FDFB94001DEAFD /* IntroduceSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D230A6BE25FDFB94001DEAFD /* IntroduceSectionController.swift */; };
 		D2525AF225FCE8D00079B0C8 /* FontCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2525AF125FCE8D00079B0C8 /* FontCellController.swift */; };
 		D2525AF425FCE9020079B0C8 /* FontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2525AED25FCE80A0079B0C8 /* FontViewController.swift */; };
 		D2525B0225FCE9220079B0C8 /* Font.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2525AF925FCE9220079B0C8 /* Font.storyboard */; };
@@ -59,14 +53,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D206765A25FCED280003AAA7 /* FONT_WITH_ERROR_MESSAGE_light-unrecognized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_ERROR_MESSAGE_light-unrecognized.png"; sourceTree = "<group>"; };
-		D206765B25FCED280003AAA7 /* EMPTY_FONT_dark-unrecognized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EMPTY_FONT_dark-unrecognized.png"; sourceTree = "<group>"; };
-		D206765C25FCED280003AAA7 /* FONT_WITH_FAILED_IMAGE_LOADING_light-unrecognized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_FAILED_IMAGE_LOADING_light-unrecognized.png"; sourceTree = "<group>"; };
-		D206765D25FCED280003AAA7 /* FONT_WITH_ERROR_MESSAGE_dark-unrecognized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_ERROR_MESSAGE_dark-unrecognized.png"; sourceTree = "<group>"; };
-		D206765E25FCED280003AAA7 /* FONT_WITH_CONTENT_dark-unrecognized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_CONTENT_dark-unrecognized.png"; sourceTree = "<group>"; };
-		D206765F25FCED280003AAA7 /* FONT_WITH_FAILED_IMAGE_LOADING_dark-unrecognized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_FAILED_IMAGE_LOADING_dark-unrecognized.png"; sourceTree = "<group>"; };
-		D206766025FCED280003AAA7 /* EMPTY_FONT_light-unrecognized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EMPTY_FONT_light-unrecognized.png"; sourceTree = "<group>"; };
-		D206766125FCED280003AAA7 /* FONT_WITH_CONTENT_light-unrecognized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_CONTENT_light-unrecognized.png"; sourceTree = "<group>"; };
+		D22E7CC425FDFC3C00A18255 /* TableViewSource_TableViewDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSource_TableViewDisplay.swift; sourceTree = "<group>"; };
+		D22E7D1E25FE077000A18255 /* FONT_WITH_CONTENT_dark_accessibilityExtraLarge-Simulator (iPhone 12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_CONTENT_dark_accessibilityExtraLarge-Simulator (iPhone 12).png"; sourceTree = "<group>"; };
+		D22E7D1F25FE077000A18255 /* FONT_WITH_FAILED_IMAGE_LOADING_dark-Simulator (iPhone 12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_FAILED_IMAGE_LOADING_dark-Simulator (iPhone 12).png"; sourceTree = "<group>"; };
+		D22E7D2025FE077000A18255 /* FONT_WITH_FAILED_IMAGE_LOADING_light-Simulator (iPhone 12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_FAILED_IMAGE_LOADING_light-Simulator (iPhone 12).png"; sourceTree = "<group>"; };
+		D22E7D2125FE077000A18255 /* FONT_WITH_CONTENT_light_accessibilityExtraExtraExtraLarge-Simulator (iPhone 12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_CONTENT_light_accessibilityExtraExtraExtraLarge-Simulator (iPhone 12).png"; sourceTree = "<group>"; };
+		D22E7D2225FE077000A18255 /* EMPTY_FONT_light-Simulator (iPhone 12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EMPTY_FONT_light-Simulator (iPhone 12).png"; sourceTree = "<group>"; };
+		D22E7D2325FE077000A18255 /* FONT_WITH_CONTENT_dark_extraExtraExtraLarge-Simulator (iPhone 12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_CONTENT_dark_extraExtraExtraLarge-Simulator (iPhone 12).png"; sourceTree = "<group>"; };
+		D22E7D2425FE077000A18255 /* FONT_WITH_CONTENT_dark-Simulator (iPhone 12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_CONTENT_dark-Simulator (iPhone 12).png"; sourceTree = "<group>"; };
+		D22E7D2525FE077000A18255 /* FONT_WITH_CONTENT_light_extraExtraExtraLarge-Simulator (iPhone 12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_CONTENT_light_extraExtraExtraLarge-Simulator (iPhone 12).png"; sourceTree = "<group>"; };
+		D22E7D2625FE077000A18255 /* FONT_WITH_CONTENT_dark_accessibilityExtraExtraExtraLarge-Simulator (iPhone 12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_CONTENT_dark_accessibilityExtraExtraExtraLarge-Simulator (iPhone 12).png"; sourceTree = "<group>"; };
+		D22E7D2725FE077000A18255 /* FONT_WITH_ERROR_MESSAGE_light-Simulator (iPhone 12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_ERROR_MESSAGE_light-Simulator (iPhone 12).png"; sourceTree = "<group>"; };
+		D22E7D2825FE077000A18255 /* FONT_WITH_ERROR_MESSAGE_dark-Simulator (iPhone 12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_ERROR_MESSAGE_dark-Simulator (iPhone 12).png"; sourceTree = "<group>"; };
+		D22E7D2925FE077000A18255 /* FONT_WITH_CONTENT_light-Simulator (iPhone 12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_CONTENT_light-Simulator (iPhone 12).png"; sourceTree = "<group>"; };
+		D22E7D2A25FE077000A18255 /* EMPTY_FONT_dark-Simulator (iPhone 12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EMPTY_FONT_dark-Simulator (iPhone 12).png"; sourceTree = "<group>"; };
+		D22E7D2B25FE077000A18255 /* FONT_WITH_CONTENT_light_accessibilityExtraLarge-Simulator (iPhone 12).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_CONTENT_light_accessibilityExtraLarge-Simulator (iPhone 12).png"; sourceTree = "<group>"; };
+		D230A6BE25FDFB94001DEAFD /* IntroduceSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceSectionController.swift; sourceTree = "<group>"; };
 		D2525AED25FCE80A0079B0C8 /* FontViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontViewController.swift; sourceTree = "<group>"; };
 		D2525AF125FCE8D00079B0C8 /* FontCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCellController.swift; sourceTree = "<group>"; };
 		D2525AF925FCE9220079B0C8 /* Font.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Font.storyboard; sourceTree = "<group>"; };
@@ -110,30 +112,46 @@
 		D206764F25FCECA80003AAA7 /* snapshots */ = {
 			isa = PBXGroup;
 			children = (
-				D206765025FCECA80003AAA7 /* ?unrecognized? */,
+				D22E7CC825FE027700A18255 /* Simulator (iPhone 12) */,
 			);
 			path = snapshots;
 			sourceTree = "<group>";
 		};
-		D206765025FCECA80003AAA7 /* ?unrecognized? */ = {
+		D22E7CC225FDFC1300A18255 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				D206765B25FCED280003AAA7 /* EMPTY_FONT_dark-unrecognized.png */,
-				D206766025FCED280003AAA7 /* EMPTY_FONT_light-unrecognized.png */,
-				D206765E25FCED280003AAA7 /* FONT_WITH_CONTENT_dark-unrecognized.png */,
-				D206766125FCED280003AAA7 /* FONT_WITH_CONTENT_light-unrecognized.png */,
-				D206765D25FCED280003AAA7 /* FONT_WITH_ERROR_MESSAGE_dark-unrecognized.png */,
-				D206765A25FCED280003AAA7 /* FONT_WITH_ERROR_MESSAGE_light-unrecognized.png */,
-				D206765F25FCED280003AAA7 /* FONT_WITH_FAILED_IMAGE_LOADING_dark-unrecognized.png */,
-				D206765C25FCED280003AAA7 /* FONT_WITH_FAILED_IMAGE_LOADING_light-unrecognized.png */,
+				D22E7CC425FDFC3C00A18255 /* TableViewSource_TableViewDisplay.swift */,
 			);
-			path = "?unrecognized?";
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		D22E7CC825FE027700A18255 /* Simulator (iPhone 12) */ = {
+			isa = PBXGroup;
+			children = (
+				D22E7D2A25FE077000A18255 /* EMPTY_FONT_dark-Simulator (iPhone 12).png */,
+				D22E7D2225FE077000A18255 /* EMPTY_FONT_light-Simulator (iPhone 12).png */,
+				D22E7D2625FE077000A18255 /* FONT_WITH_CONTENT_dark_accessibilityExtraExtraExtraLarge-Simulator (iPhone 12).png */,
+				D22E7D1E25FE077000A18255 /* FONT_WITH_CONTENT_dark_accessibilityExtraLarge-Simulator (iPhone 12).png */,
+				D22E7D2325FE077000A18255 /* FONT_WITH_CONTENT_dark_extraExtraExtraLarge-Simulator (iPhone 12).png */,
+				D22E7D2425FE077000A18255 /* FONT_WITH_CONTENT_dark-Simulator (iPhone 12).png */,
+				D22E7D2125FE077000A18255 /* FONT_WITH_CONTENT_light_accessibilityExtraExtraExtraLarge-Simulator (iPhone 12).png */,
+				D22E7D2B25FE077000A18255 /* FONT_WITH_CONTENT_light_accessibilityExtraLarge-Simulator (iPhone 12).png */,
+				D22E7D2525FE077000A18255 /* FONT_WITH_CONTENT_light_extraExtraExtraLarge-Simulator (iPhone 12).png */,
+				D22E7D2925FE077000A18255 /* FONT_WITH_CONTENT_light-Simulator (iPhone 12).png */,
+				D22E7D2825FE077000A18255 /* FONT_WITH_ERROR_MESSAGE_dark-Simulator (iPhone 12).png */,
+				D22E7D2725FE077000A18255 /* FONT_WITH_ERROR_MESSAGE_light-Simulator (iPhone 12).png */,
+				D22E7D1F25FE077000A18255 /* FONT_WITH_FAILED_IMAGE_LOADING_dark-Simulator (iPhone 12).png */,
+				D22E7D2025FE077000A18255 /* FONT_WITH_FAILED_IMAGE_LOADING_light-Simulator (iPhone 12).png */,
+			);
+			path = "Simulator (iPhone 12)";
 			sourceTree = "<group>";
 		};
 		D2525AF725FCE9060079B0C8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D22E7CC225FDFC1300A18255 /* Helper */,
 				D2525AED25FCE80A0079B0C8 /* FontViewController.swift */,
+				D230A6BE25FDFB94001DEAFD /* IntroduceSectionController.swift */,
 				D2525AF125FCE8D00079B0C8 /* FontCellController.swift */,
 				D29744FC25FDE5090033A5B6 /* FontGroupController.swift */,
 			);
@@ -327,14 +345,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D206766925FCED280003AAA7 /* FONT_WITH_CONTENT_light-unrecognized.png in Resources */,
-				D206766325FCED280003AAA7 /* EMPTY_FONT_dark-unrecognized.png in Resources */,
-				D206766625FCED280003AAA7 /* FONT_WITH_CONTENT_dark-unrecognized.png in Resources */,
-				D206766225FCED280003AAA7 /* FONT_WITH_ERROR_MESSAGE_light-unrecognized.png in Resources */,
-				D206766525FCED280003AAA7 /* FONT_WITH_ERROR_MESSAGE_dark-unrecognized.png in Resources */,
-				D206766425FCED280003AAA7 /* FONT_WITH_FAILED_IMAGE_LOADING_light-unrecognized.png in Resources */,
-				D206766725FCED280003AAA7 /* FONT_WITH_FAILED_IMAGE_LOADING_dark-unrecognized.png in Resources */,
-				D206766825FCED280003AAA7 /* EMPTY_FONT_light-unrecognized.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2525B0525FCE9220079B0C8 /* UITableView+HeaderSizing.swift in Sources */,
+				D230A6BF25FDFB94001DEAFD /* IntroduceSectionController.swift in Sources */,
 				D2525B0725FCE9220079B0C8 /* UITableView+Dequeueing.swift .swift in Sources */,
 				D2525AF225FCE8D00079B0C8 /* FontCellController.swift in Sources */,
 				D2525B0425FCE9220079B0C8 /* UIRefreshControl+Helpers.swift in Sources */,
@@ -354,6 +365,7 @@
 				D2525B0325FCE9220079B0C8 /* UIImageView+Animations.swift in Sources */,
 				D2525AF425FCE9020079B0C8 /* FontViewController.swift in Sources */,
 				D2525B0825FCE9220079B0C8 /* ErrorView.swift in Sources */,
+				D22E7CC525FDFC3C00A18255 /* TableViewSource_TableViewDisplay.swift in Sources */,
 				D2CCCBCA25FCE3310071E319 /* FontAppiOS.swift in Sources */,
 				D2525B0925FCE9220079B0C8 /* FontCell.swift in Sources */,
 			);

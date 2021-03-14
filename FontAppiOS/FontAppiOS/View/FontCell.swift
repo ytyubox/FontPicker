@@ -19,9 +19,17 @@ public final class FontCell: UITableViewCell, ReusableID {
     @IBAction private func retryButtonTapped() {
         onRetry?()
     }
-
+    
     override public func awakeFromNib() {
         super.awakeFromNib()
+        
+        [
+            nameLabel,
+            fontLabel,
+        ].forEach{
+            label in
+            label.adjustsFontForContentSizeCategory = true
+        }
         accessibilityIdentifier = "font-cell"
         fontLabel.accessibilityIdentifier = "font-view"
     }

@@ -21,27 +21,59 @@ public final class FontGroupController {
     
     var tableModel = [FontCellController]()
     
-    private var cellControllers = [IndexPath:FontCellController]()
-//
+    private var loadingControllers = [IndexPath: FontCellController]()
+
     func view(tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
-        let cellController = cellControllers[indexPath]!
+        let cellController = tableModel[indexPath.row]
         
         let cell = cellController.view(tableView: tableView)
-        
-//        cellController.delegate.requestLoad()
         return cell
     }
-//
-//    func preload() {
-//        delegate.requestLoad()
-//    }
-//
-//    func cancelLoad() {
-//        delegate.cancelLoad()
-//        releaseCellForReuse()
-//    }
-//
-//    private func releaseCellForReuse() {
-//        cell = nil
-//    }
+
+    
+    private func cellController(forRowAt indexPath: IndexPath) -> FontCellController {
+        let controller = tableModel[indexPath.row]
+        loadingControllers[indexPath] = controller
+        return controller
+    }
+
+    private func cancelCellController(forRowAt indexPath: IndexPath) {
+        loadingControllers[indexPath]?.cancelLoad()
+        loadingControllers[indexPath] = nil
+    }
+    deinit {
+        loadingControllers.removeAll()
+    }
+}
+
+extension FontGroupController: TableViewSource {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        name
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableModel.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        view(tableView: tableView, for: indexPath)
+    }
+    
+    
+}
+
+extension FontGroupController: TableViewDisplay {
+    public func tableView(_: UITableView, didEndDisplaying _: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cancelCellController(forRowAt: indexPath)
+    }
+
+    public func tableView(_: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach { indexPath in
+            cellController(forRowAt: indexPath).preload()
+        }
+    }
+
+    public func tableView(_: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach(cancelCellController(forRowAt:))
+    }
 }

@@ -14,12 +14,13 @@ import UIKit
 import XCTest
 
 class FontSnapshotTests: XCTestCase {
+    
     func test_emptyFont() throws {
         let sut = makeSUT()
         sut.display(emptyFont())
 
-        XCTRecord(snapshot: sut.snapshot(for: .init(style: .light)), named: "EMPTY_FONT_light")
-        XCTRecord(snapshot: sut.snapshot(for: .init(style: .dark)), named: "EMPTY_FONT_dark")
+        XCTAssert(snapshot: sut.snapshot(for: .init(style: .light)), named: "EMPTY_FONT_light")
+        XCTAssert(snapshot: sut.snapshot(for: .init(style: .dark)), named: "EMPTY_FONT_dark")
     }
 
     func test_feedWithContent() {
@@ -27,17 +28,45 @@ class FontSnapshotTests: XCTestCase {
 
         sut.display(feedWithContent())
 
-        XCTRecord(snapshot: sut.snapshot(for: .init(style: .light)), named: "FONT_WITH_CONTENT_light")
-        XCTRecord(snapshot: sut.snapshot(for: .init(style: .dark)), named: "FONT_WITH_CONTENT_dark")
+        XCTAssert(snapshot: sut.snapshot(for: .init(style: .light)), named: "FONT_WITH_CONTENT_light")
+        XCTAssert(snapshot: sut.snapshot(for: .init(style: .dark)), named: "FONT_WITH_CONTENT_dark")
     }
+    func test_feedWithExtraExtraExtraLargeContent() {
+        let sut = makeSUT()
+
+        sut.display(feedWithContent())
+
+        XCTAssert(snapshot: sut.snapshot(for: .init(style: .light, contentSize: .extraExtraExtraLarge)), named: "FONT_WITH_CONTENT_light_extraExtraExtraLarge")
+        XCTAssert(snapshot: sut.snapshot(for: .init(style: .dark, contentSize: .extraExtraExtraLarge)), named: "FONT_WITH_CONTENT_dark_extraExtraExtraLarge")
+    }
+    func test_feedWithAccessibilityExtraLargeContent() {
+        
+        let sut = makeSUT()
+
+        sut.display(feedWithContent())
+
+        XCTAssert(snapshot: sut.snapshot(for: .init(style: .light, contentSize: .accessibilityExtraLarge)), named: "FONT_WITH_CONTENT_light_accessibilityExtraLarge")
+        XCTAssert(snapshot: sut.snapshot(for: .init(style: .dark, contentSize: .accessibilityExtraLarge)), named: "FONT_WITH_CONTENT_dark_accessibilityExtraLarge")
+    }
+    
+    func test_feedWithAccessibilityExtraExtraExtraLargeContent() {
+        let sut = makeSUT()
+
+        sut.display(feedWithContent())
+
+        XCTAssert(snapshot: sut.snapshot(for: .init(style: .light, contentSize: .accessibilityExtraExtraExtraLarge)), named: "FONT_WITH_CONTENT_light_accessibilityExtraExtraExtraLarge")
+        XCTAssert(snapshot: sut.snapshot(for: .init(style: .dark, contentSize: .extraExtraExtraLarge)), named: "FONT_WITH_CONTENT_dark_accessibilityExtraExtraExtraLarge")
+    }
+
+
 
     func test_feedWithErrorMessage() {
         let sut = makeSUT()
 
         sut.display(.error(message: "This is a\nmulti-line\nerror message"))
 
-        XCTRecord(snapshot: sut.snapshot(for: .init(style: .light)), named: "FONT_WITH_ERROR_MESSAGE_light")
-        XCTRecord(snapshot: sut.snapshot(for: .init(style: .dark)), named: "FONT_WITH_ERROR_MESSAGE_dark")
+        XCTAssert(snapshot: sut.snapshot(for: .init(style: .light)), named: "FONT_WITH_ERROR_MESSAGE_light")
+        XCTAssert(snapshot: sut.snapshot(for: .init(style: .dark)), named: "FONT_WITH_ERROR_MESSAGE_dark")
     }
 
     func test_feedWithFailedImageLoading() {
@@ -45,8 +74,8 @@ class FontSnapshotTests: XCTestCase {
 
         sut.display(feedWithFailedImageLoading())
 
-        XCTRecord(snapshot: sut.snapshot(for: .init(style: .light)), named: "FONT_WITH_FAILED_IMAGE_LOADING_light")
-        XCTRecord(snapshot: sut.snapshot(for: .init(style: .dark)), named: "FONT_WITH_FAILED_IMAGE_LOADING_dark")
+        XCTAssert(snapshot: sut.snapshot(for: .init(style: .light)), named: "FONT_WITH_FAILED_IMAGE_LOADING_light")
+        XCTAssert(snapshot: sut.snapshot(for: .init(style: .dark)), named: "FONT_WITH_FAILED_IMAGE_LOADING_dark")
     }
 
     // MARK: Helpers
