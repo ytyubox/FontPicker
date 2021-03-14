@@ -11,14 +11,25 @@ import FontPicker
 import LoadingSystem
 import UIKit
 
-class Container<Store: FontStore & FontFileStore> {
-    private var httpClient: HTTPClient
-
-    private var _store: Store
+class Container {
+    private let httpClient: HTTPClient
+    private let fontStore: AnyStore<LocalFont>
+    private let fileStore: DataStore
+    
+    
+    internal init(httpClient: HTTPClient,
+                  fontStore: AnyStore<LocalFont>,
+                  fileStore: DataStore) {
+        self.httpClient = httpClient
+        self.fontStore = fontStore
+        self.fileStore = fileStore
+    }
+    
+    
 
     private lazy var localFontStore: AnyStore<LocalFont> =
-        AnyStore(_store)
-    private lazy var fontFileDataStore: DataStore = _store
+        AnyStore(fontStore)
+    private lazy var fontFileDataStore: DataStore = fileStore
 
     private lazy var remoteFontLoader: AnyLoader<[Font]> = {
         RemoteFontLoader(
@@ -31,15 +42,14 @@ class Container<Store: FontStore & FontFileStore> {
         LocalFontLoader(store: localFontStore, currentDate: Date.init)
 
     private lazy var remoteFontFileLoader =
-        RemoteFontFileLoader(client: httpClient)
+        RemoteFontFileLoader(client: httpClient
+                                .log(with: PrintLogger())
+        )
 
     private lazy var localFontFileLoader =
         LocalFontFileLoader(store: fontFileDataStore)
 
-    init(httpClient: HTTPClient, store: Store) where Store: FontStore & FontFileStore {
-        self.httpClient = httpClient
-        _store = store
-    }
+  
 }
 
 extension Container: Root {
@@ -86,3 +96,5 @@ private let APIKEY: String = {
     assert(!key.isEmpty, "APIKEY did not set, Please set in secrets.xcconfig")
     return key
 }()
+
+

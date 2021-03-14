@@ -19,9 +19,10 @@ public final class FontCellController {
     private let delegate: FontCellControllerDelegate
 
     private var cell: FontCell?
-    var demoText = "DEMO Text"
-    public init(delegate: FontCellControllerDelegate) {
+    var demoText:String
+    public init(delegate: FontCellControllerDelegate, demoText:String) {
         self.delegate = delegate
+        self.demoText = demoText
     }
 
     func view(tableView: UITableView) -> UITableViewCell {
@@ -50,11 +51,16 @@ extension FontCellController: FontFileView {
     public typealias FONT = UIFont
 
     public func display(_ viewModel: Union) {
+//        if !viewModel.shouldRetry && viewModel.font == nil {
+//
+//        }
         cell?.retryButton.isHidden = !viewModel.shouldRetry
         cell?.nameLabel.text = viewModel.weight
-        cell?.fontLabel.isHidden = viewModel.font == nil
+//        cell?.fontLabel.isHidden = viewModel.font == nil
         cell?.fontLabel.text = demoText
         cell?.fontLabel.font = viewModel.font?.dynamicFont(forTextStyle: .body)
+        cell?.fontContainer.isShimmering = viewModel.isLoading
+        cell?.onRetry = delegate.requestLoad
     }
 }
 
@@ -63,4 +69,7 @@ private extension UIFont {
         UIFontMetrics(forTextStyle: style)
             .scaledFont(for: self)
     }
+}
+
+extension FontFileViewModel.VariantViewModel where F == UIFont {
 }

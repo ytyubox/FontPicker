@@ -15,19 +15,27 @@ extension FontFilePresenter {
         typealias Output = FontFileViewModel<Input>.VariantViewModel
         private var cache:[URL: Input] = [:]
         func failure(_ model:Variant, with error:Error) -> Output {
-            .init(font: nil, weight: model.name, shouldRetry: true)
+            .init(font: nil, weight: model.name, shouldRetry: true, isLoading: false)
             
         }
         func loading(for  model:Variant) -> Output {
-            .init(font: nil, weight: model.name, shouldRetry: false)
+            .init(font: nil, weight: model.name, shouldRetry: false, isLoading: true)
         }
         
         func success(
             with data: Data,
-            fontTransformer: (Data) -> Input?,
-            for model:Variant) -> Output {
-            let font = fontTransformer(data)
-            return Output(font: font, weight: model.name, shouldRetry: false)
+            fontTransformer: (Data) throws -> Input?,
+            for model:Variant) throws -> Output {
+            let font = try fontTransformer(data)
+            return Output(font: font, weight: model.name, shouldRetry: false, isLoading: false)
+        }
+        
+        func successCaseFailure(for model: Variant, error: Error) -> Output {
+            print(error)
+            return Output(font: nil,
+                   weight: model.name,
+                   shouldRetry: true,
+                   isLoading: false)
         }
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2107A7625FE67370070EDA3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2107A7525FE67370070EDA3 /* Logger.swift */; };
+		D2107A7A25FE6C560070EDA3 /* UIFont+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2107A7925FE6C560070EDA3 /* UIFont+Data.swift */; };
 		D22E7D3F25FE0C3D00A18255 /* FontFileLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D3B25FE0C3D00A18255 /* FontFileLoaderCacheDecorator.swift */; };
 		D22E7D4025FE0C3D00A18255 /* FontFileLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D3C25FE0C3D00A18255 /* FontFileLoaderWithFallbackComposite.swift */; };
 		D22E7D4125FE0C3D00A18255 /* FontLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E7D3D25FE0C3D00A18255 /* FontLoaderCacheDecorator.swift */; };
@@ -74,6 +76,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D2107A7525FE67370070EDA3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		D2107A7925FE6C560070EDA3 /* UIFont+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Data.swift"; sourceTree = "<group>"; };
 		D22E7D2E25FE0A9B00A18255 /* FontAppiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FontAppiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22E7D3B25FE0C3D00A18255 /* FontFileLoaderCacheDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontFileLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 		D22E7D3C25FE0C3D00A18255 /* FontFileLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontFileLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 				D2C188A025FA044900B86D82 /* AppDelegate.swift */,
 				D2C188A225FA044900B86D82 /* SceneDelegate.swift */,
 				D22E7D4A25FE0E1B00A18255 /* AppContainer.swift */,
+				D2107A7525FE67370070EDA3 /* Logger.swift */,
+				D2107A7925FE6C560070EDA3 /* UIFont+Data.swift */,
 				D22E7D5025FE0FE100A18255 /* Root.swift */,
 				D22E7D5925FE17D300A18255 /* Compose */,
 				D22E7D4425FE0C4400A18255 /* Helper */,
@@ -359,8 +365,10 @@
 				D22E7D6525FE17DD00A18255 /* FeedUIComposer.swift in Sources */,
 				D22E7D6325FE17DD00A18255 /* MainQueueDispatchDecorator.swift in Sources */,
 				D22E7D4125FE0C3D00A18255 /* FontLoaderCacheDecorator.swift in Sources */,
+				D2107A7A25FE6C560070EDA3 /* UIFont+Data.swift in Sources */,
 				D2C188A125FA044900B86D82 /* AppDelegate.swift in Sources */,
 				D22E7D5425FE136200A18255 /* AppFeedStoreAdapter.swift in Sources */,
+				D2107A7625FE67370070EDA3 /* Logger.swift in Sources */,
 				D22E7D6625FE17DD00A18255 /* FeedViewAdapter.swift in Sources */,
 				D2C188A325FA044900B86D82 /* SceneDelegate.swift in Sources */,
 				D22E7D6725FE17DD00A18255 /* WeakRefVirtualProxy.swift in Sources */,

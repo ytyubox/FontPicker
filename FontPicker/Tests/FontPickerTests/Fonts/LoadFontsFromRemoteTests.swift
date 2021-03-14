@@ -142,7 +142,6 @@ final class LoadFontsFromRemoteTests: XCTestCase {
             "category": category,
             "kind": "AnyKind",
         ].compactMapValues { $0 }
-        dump(json)
         return (item, json)
     }
     private func makeVariant(name: String, fileURL: URL) -> Variant {

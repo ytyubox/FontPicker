@@ -15,8 +15,16 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    var root: Root = Container(httpClient: makeHTTPClient(),
-                               store: AppFontStoreAdapter())
+    var root:Root = {
+        let adapter:AppFontStoreAdapter? = nil// AppFontStoreAdapter()
+        let null = NullStore()
+        var root: Root = Container(
+            httpClient: makeHTTPClient(),
+            fontStore: (adapter?.toAnyStore() ?? null.toAnyStore()),
+            fileStore: adapter ?? null
+        )
+        return root
+    }()
     convenience init(root: Root) {
         self.init()
         self.root = root
@@ -40,5 +48,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 func makeHTTPClient() -> HTTPClient {
+    
     URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
 }

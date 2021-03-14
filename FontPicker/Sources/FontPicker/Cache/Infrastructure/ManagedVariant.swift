@@ -25,7 +25,6 @@ extension ManagedVariant {
         request.fetchLimit = 1
         let result =
             try context.fetch(request)
-        dump(result)
         return result.first
     }
     
@@ -38,7 +37,7 @@ extension ManagedVariant {
             let managed = ManagedVariant(context: context)
             managed.name = local.name
             managed.data = local.data
-//            managed.url = local.fileURL
+            managed.url = local.fileURL
             return managed
         })
     }

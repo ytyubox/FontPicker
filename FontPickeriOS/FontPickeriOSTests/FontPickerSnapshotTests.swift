@@ -97,14 +97,14 @@ class FontSnapshotTests: XCTestCase {
             FontStub(name: "A Really long Really long Really long Font 1",
                      fontDemoText: "A Really long Really long Really long Font 1",
                      variants: [
-                         .init(font: .systemFont(ofSize: 12), weight: "A Really long Really long Really long name", shouldRetry: false),
-                         .init(font: .systemFont(ofSize: 12), weight: "another weight", shouldRetry: false),
+                        .init(font: .systemFont(ofSize: 12), weight: "A Really long Really long Really long name", shouldRetry: false, isLoading: false),
+                        .init(font: .systemFont(ofSize: 12), weight: "another weight", shouldRetry: false, isLoading: false),
                      ],
                      subsets: ["subset 1", "subset 2"], category: "a Category"),
             FontStub(name: "Font 2",
                      fontDemoText: "Demo",
                      variants: [
-                         .init(font: .systemFont(ofSize: 12), weight: "regualr", shouldRetry: false),
+                        .init(font: .systemFont(ofSize: 12), weight: "regualr", shouldRetry: false, isLoading: false),
                      ],
                      subsets: ["subset 1", "subset 2"], category: "a Category"),
         ]
@@ -115,14 +115,14 @@ class FontSnapshotTests: XCTestCase {
             FontStub(name: "A Really long Really long Really long Font 1",
                      fontDemoText: "A Really long Really long Really long Font 1",
                      variants: [
-                         .init(font: nil, weight: "A Really long Really long Really long name", shouldRetry: true),
-                         .init(font: nil, weight: "another weight", shouldRetry: true),
+                        .init(font: nil, weight: "A Really long Really long Really long name", shouldRetry: true, isLoading: false),
+                        .init(font: nil, weight: "another weight", shouldRetry: true, isLoading: false),
                      ],
                      subsets: ["subset 1", "subset 2"], category: "a Category"),
             FontStub(name: "Font 2",
                      fontDemoText: "Demo",
                      variants: [
-                         .init(font: nil, weight: "regular", shouldRetry: true),
+                        .init(font: nil, weight: "regular", shouldRetry: true, isLoading: false),
                      ],
                      subsets: ["subset 1", "subset 2"], category: "a Category"),
         ]

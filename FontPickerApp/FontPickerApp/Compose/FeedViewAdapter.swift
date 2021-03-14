@@ -40,10 +40,16 @@ final class FontViewAdapter: FontView {
                                 fontFileDataLoader: fontFileLoader,
                                 model: variant,
                                 url: variant.fileURL)
-                            let view = FontCellController(delegate: adapt)
+                            let view = FontCellController(delegate: adapt, demoText: font.name)
                             adapt.presenter = FontFilePresenter(
                                 view: WeakRefVirtualProxy(view),
-                                fontTransformer: UIFont.make)
+                                fontTransformer:
+                                    {
+                                        data in
+                                        try
+                                            UIFont.build(url: variant.fileURL, data: data)
+                                    }
+                                )
                             return view
                         }
                 )
@@ -52,24 +58,3 @@ final class FontViewAdapter: FontView {
     }
 }
 
-private extension UIFont {
-    static func make(data: Data) -> UIFont? {
-        make(data: data, size: 30)
-    }
-    static func make(data: Data, size: CGFloat) -> UIFont? {
-        guard
-            let dataProvider = CGDataProvider(data: data as CFData),
-            let cgFont = CGFont(dataProvider)
-        else { return nil }
-        
-        var error: Unmanaged<CFError>?
-        if !CTFontManagerRegisterGraphicsFont(cgFont, &error) {
-            return nil
-        } else {
-            guard let fontName = cgFont.postScriptName else {
-                return nil
-            }
-            return UIFont(name: String(fontName), size: size)
-        }
-    }
-}

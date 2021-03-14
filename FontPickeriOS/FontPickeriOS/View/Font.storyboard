@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,12 +12,12 @@
         <!--Font View Controller-->
         <scene sceneID="3A9-uW-QQC">
             <objects>
-                <tableViewController id="ltv-Fb-ztG" customClass="FontViewController" customModule="FontAppiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ltv-Fb-ztG" customClass="FontViewController" customModule="FontPickeriOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="eVV-2z-5lo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="rKG-y7-1Ks" customClass="ErrorView" customModule="FontAppiOS" customModuleProvider="target">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="rKG-y7-1Ks" customClass="ErrorView" customModule="FontPickeriOS" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -45,7 +44,7 @@
                             </connections>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FontCell" rowHeight="200" id="Han-3l-hgv" customClass="FontCell" customModule="FontAppiOS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FontCell" rowHeight="200" id="Han-3l-hgv" customClass="FontCell" customModule="FontPickeriOS" customModuleProvider="target">
                                 <rect key="frame" x="20" y="99.5" width="374" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Han-3l-hgv" id="7DV-u8-aUA">
@@ -61,7 +60,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gm6-9E-ppM" userLabel="FontContainer">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gm6-9E-ppM" userLabel="FontContainer" customClass="ShimmeringView" customModule="FontPickeriOS" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="116" width="334" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xu-CD-2fV" userLabel="fontLabel">
@@ -108,6 +107,7 @@
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="font-cell"/>
                                 <connections>
+                                    <outlet property="fontContainer" destination="gm6-9E-ppM" id="O00-Vm-fw5"/>
                                     <outlet property="fontLabel" destination="6xu-CD-2fV" id="ihI-5g-Cgm"/>
                                     <outlet property="nameLabel" destination="Oua-oL-Q5L" id="wi5-vH-SPU"/>
                                     <outlet property="retryButton" destination="vMg-tl-FDN" id="m6s-FS-0kC"/>
@@ -138,33 +138,6 @@
                         <action selector="hideMessageAnimated" destination="rKG-y7-1Ks" id="3Rl-d2-5be"/>
                     </connections>
                 </tapGestureRecognizer>
-                <view contentMode="scaleToFill" id="vbK-DM-XBE">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciP-gQ-jPg">
-                            <rect key="frame" x="16" y="54" width="42" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fR9-qI-1re">
-                            <rect key="frame" x="112" y="54" width="42" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvA-Az-udw">
-                            <rect key="frame" x="110" y="6" width="46" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                        </button>
-                    </subviews>
-                    <viewLayoutGuide key="safeArea" id="U07-xu-962"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="818.84057971014499" y="176.78571428571428"/>
         </scene>

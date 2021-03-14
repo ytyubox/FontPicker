@@ -23,8 +23,8 @@ class FontAcceptanceTests: XCTestCase {
     func test_onLaunch_displaysCachedRemoteFontWhenCustomerHasNoConnectivity() {
         let sharedStore = InMemoryFontStore.empty
         let onlineFont = launch(httpClient: .onlineFont(transformer: fontToData(font:), response), store: sharedStore)
-        onlineFont.simulateFontImageViewVisible(at: 0)
-        onlineFont.simulateFontImageViewVisible(at: 1)
+        onlineFont.simulateFontCellVisible(at: 0)
+        onlineFont.simulateFontCellVisible(at: 1)
 
         let offlineFont = launch(httpClient: .offline, store: sharedStore)
 

@@ -8,13 +8,26 @@
  */
 
 import CoreData
+import LoadingSystem
 import FontPicker
 
+typealias Item = CachedItem<LocalFont>
+typealias RetrievalItemResult = Result<Item?, Error>
+typealias RetrievalItemCompletion = (RetrievalItemResult) -> Void
+
+
 class AppFontStoreAdapter: FontStore, FontFileStore {
-    let store = try! CoreDataFontStore(
-        storeURL: NSPersistentContainer
-            .defaultDirectoryURL()
-            .appendingPathComponent("font-store.sqlite"))
+    init?() {
+        do {
+            self.store = try CoreDataFontStore(
+                storeURL: NSPersistentContainer
+                    .defaultDirectoryURL()
+                    .appendingPathComponent("font-store.sqlite"))
+        } catch {
+            return nil
+        }
+    }
+    let store:CoreDataFontStore
     func insert(_ data: Data, for url: URL, completion: @escaping (InsertionResult) -> Void) {
         store.insert(data, for: url, completion: completion)
     }
@@ -30,8 +43,31 @@ class AppFontStoreAdapter: FontStore, FontFileStore {
     func insert(_ font: [LocalFont], timestamp: Date, completion: @escaping InsertionCompletion) {
         store.insert(font, timestamp: timestamp, completion: completion)
     }
-
-    func retrieve(completion: @escaping RetrievalCompletion) {
+  
+    func retrieve(completion: @escaping RetrievalItemCompletion) {
         store.retrieve(completion: completion)
     }
+}
+
+final class NullStore: FontStore, FontFileStore {
+    func insert(_ data: Data, for url: URL, completion: @escaping (InsertionResult) -> Void) {
+        completion(.success(()))
+    }
+
+    func retrieve(dataForURL url: URL, completion: @escaping (FontFileStore.RetrievalResult) -> Void) {
+        completion(.success(.none))
+    }
+
+    func deleteCached(completion: @escaping DeletionCompletion) {
+        completion(.success(()))
+    }
+
+    func insert(_ font: [LocalFont], timestamp: Date, completion: @escaping InsertionCompletion) {
+        completion(.success(()))
+    }
+
+    func retrieve(completion: @escaping RetrievalItemCompletion) {
+        completion(.success(.none))
+    }
+    
 }

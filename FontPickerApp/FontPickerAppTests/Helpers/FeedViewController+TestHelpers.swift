@@ -11,13 +11,13 @@ extension FontViewController {
     }
 
     @discardableResult
-    func simulateFontImageViewVisible(at index: Int) -> FontCell? {
+    func simulateFontCellVisible(at index: Int) -> FontCell? {
         return feedImageView(at: index) as? FontCell
     }
 
     @discardableResult
     func simulateFontImageViewNotVisible(at row: Int) -> FontCell? {
-        let view = simulateFontImageViewVisible(at: row)
+        let view = simulateFontCellVisible(at: row)
 
         let delegate = tableView.delegate
         let index = IndexPath(row: row, section: feedImagesSection)
@@ -41,7 +41,7 @@ extension FontViewController {
     }
 
     func renderedFontImageData(at index: Int) -> UIFont? {
-        return simulateFontImageViewVisible(at: index)?.demoingFont
+        return simulateFontCellVisible(at: index)?.demoingFont
     }
 
     var errorMessage: String? {
@@ -66,6 +66,6 @@ extension FontViewController {
     }
 
     private var feedImagesSection: Int {
-        return 0
+        return 1
     }
 }
