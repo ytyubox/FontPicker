@@ -1,6 +1,4 @@
-//
-//  Copyright © 2019 Essential Developer. All rights reserved.
-//
+
 
 import FontPicker
 import LoadingSystem
@@ -28,7 +26,7 @@ class CoreDataFontFileDataStoreTests: XCTestCase {
         let sut = makeSUT()
         let storedData = anyData()
         let matchingURL = URL(string: "http://a-url.com")!
-        
+
         insert(storedData, for: matchingURL, into: sut)
 
         expect(sut, toCompleteRetrievalWith: found(storedData), for: matchingURL)
