@@ -64,7 +64,7 @@
                                                     <rect key="frame" x="0.0" y="116" width="334" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xu-CD-2fV" userLabel="fontLabel">
-                                                            <rect key="frame" x="6" y="0.0" width="322" height="50"/>
+                                                            <rect key="frame" x="50" y="0.0" width="278" height="50"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -80,7 +80,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="6xu-CD-2fV" firstAttribute="leading" secondItem="gm6-9E-ppM" secondAttribute="leading" constant="6" id="8V5-4b-hU0"/>
+                                                        <constraint firstItem="6xu-CD-2fV" firstAttribute="leading" secondItem="gm6-9E-ppM" secondAttribute="leading" constant="50" id="8V5-4b-hU0"/>
                                                         <constraint firstItem="vMg-tl-FDN" firstAttribute="leading" secondItem="gm6-9E-ppM" secondAttribute="leading" id="8fH-7L-UzF"/>
                                                         <constraint firstAttribute="bottom" secondItem="6xu-CD-2fV" secondAttribute="bottom" id="DLm-HR-arb"/>
                                                         <constraint firstAttribute="bottom" secondItem="vMg-tl-FDN" secondAttribute="bottom" id="ZbR-d9-grf"/>

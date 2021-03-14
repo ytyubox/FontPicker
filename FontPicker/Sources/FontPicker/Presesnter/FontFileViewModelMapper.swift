@@ -13,9 +13,9 @@ extension FontFilePresenter {
         internal init(variantName: @escaping (Variant) -> String) {
             self.variantName = variantName
         }
-        
+
         typealias Output = FontFileViewModel<Input>.VariantViewModel
-        let variantName:(Variant) -> String
+        let variantName: (Variant) -> String
         func failure(_ model: Variant, with _: Error) -> Output {
             .init(font: nil,
                   weight: variantName(model),
