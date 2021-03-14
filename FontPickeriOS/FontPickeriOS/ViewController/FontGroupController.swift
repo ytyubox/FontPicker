@@ -11,22 +11,21 @@ import FontPicker
 import UIKit
 
 public final class FontGroupController {
-    public convenience init(name: String, demoText: String, tableModel: [FontCellController]) {
+    public convenience init(name: String, tableModel: [FontCellController]) {
         self.init()
-        self.demoText = demoText
+//        self.demoText = demoText
         self.name = name
         self.tableModel = tableModel
     }
 
     private var name: String = ""
-    private var demoText: String = ""
+//    private var demoText: String = ""
     private var tableModel = [FontCellController]()
 
     private var loadingControllers = [IndexPath: FontCellController]()
 
     func view(tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         let cellController = tableModel[indexPath.row]
-        cellController.demoText = demoText
         let cell = cellController.view(tableView: tableView)
         return cell
     }
@@ -57,7 +56,7 @@ extension FontGroupController: TableViewSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableModel[indexPath.row].view(tableView: tableView)
+        cellController(forRowAt: indexPath).view(tableView: tableView)
     }
 }
 

@@ -20,6 +20,7 @@ class FontFilePresentationAdapter<View, FONT>:
     let fontFileDataLoader: AnyCancellableLoader<Data>
     let model: INPUT
     let url:URL
+    private var isLoading = false
 
     init(fontFileDataLoader: AnyCancellableLoader<Data>,
          model: INPUT,
@@ -36,7 +37,9 @@ class FontFilePresentationAdapter<View, FONT>:
     private var task: CancellabelTask?
 
     func requestLoad() {
+        if isLoading {return}
         presenter.didStartLoadingData(for: model)
+        isLoading = true
         task = fontFileDataLoader
             .load(from: url) {
                 [weak self] result in
@@ -45,6 +48,7 @@ class FontFilePresentationAdapter<View, FONT>:
     }
 
     private func didLoadFontFileData(_ result: Result<Data, Error>) {
+        self.isLoading = false
         switch result {
         case let .success(data):
             presenter.didFinishLoadingData(with: data, for: model)

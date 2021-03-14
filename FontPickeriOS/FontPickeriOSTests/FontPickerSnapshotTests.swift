@@ -8,6 +8,7 @@
  */
 
 import FontPicker
+import LoadingSystem
 @testable import FontPickeriOS
 import TestUtils
 import UIKit
@@ -85,7 +86,7 @@ class FontSnapshotTests: XCTestCase {
         controller.loadViewIfNeeded()
         controller.tableView.showsVerticalScrollIndicator = false
         controller.tableView.showsHorizontalScrollIndicator = false
-        controller.display(IntroctionViewModel(content:
+        controller.firstSection.display(IntroductionViewModel(content:
                         """
                             Any Introduction
                             Any Introduction
@@ -179,7 +180,7 @@ private extension FontViewController {
         let groups: [FontGroupController] = stubs.map { stub in
             let cellControllers = stub.viewModel.variants.map { _ in FontCellController(delegate: stub, demoText: stub.viewModel.name) }
             let group = FontGroupController(
-                name: stub.viewModel.name, demoText: stub.viewModel.fontDemoText,
+                name: stub.viewModel.name,
                 tableModel: cellControllers
             )
             stub.controller = cellControllers
