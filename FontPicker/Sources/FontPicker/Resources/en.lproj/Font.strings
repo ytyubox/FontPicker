@@ -1,3 +1,21 @@
 
 "FONT_VIEW_TITLE" = "Font from Google";
 "FONT_VIEW_CONNECTION_ERROR" = "Couldn't connect to server";
+"KEY_100" = "Thin 100";
+"KEY_100italic" = "Thin 100 italic";
+"KEY_200" = "Extra-light 200";
+"KEY_200italic" = "Extra-light 200 italic";
+"KEY_300" = "Light 300";
+"KEY_300italic" = "Light 300 italic";
+"KEY_500" = "Medium 500";
+"KEY_500italic" = "Medium 500 italic";
+"KEY_600" = "Demi-bold 600";
+"KEY_600italic" = "Demi-bold 600 italic";
+"KEY_700" = "Bold 700";
+"KEY_700italic" = "Bold 700 italic";
+"KEY_800" = "Extra-bold 800";
+"KEY_800italic" = "Extra-bold 800 italic";
+"KEY_900" = "Extra-black 900";
+"KEY_900italic" = "Extra-black 900 italic";
+"KEY_italic" = "Italic";
+"KEY_regular" = "Regular";

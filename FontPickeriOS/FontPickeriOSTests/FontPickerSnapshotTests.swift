@@ -170,7 +170,7 @@ private class FontStub: FontCellControllerDelegate {
 private extension FontViewController {
     func display(_ stubs: [FontStub]) {
         let groups: [FontGroupController] = stubs.map { stub in
-            let cellControllers = stub.viewModel.variants.map { _ in FontCellController(delegate: stub) }
+            let cellControllers = stub.viewModel.variants.map { _ in FontCellController(delegate: stub, demoText: stub.viewModel.name) }
             let group = FontGroupController(
                 name: stub.viewModel.name, demoText: stub.viewModel.fontDemoText,
                 tableModel: cellControllers

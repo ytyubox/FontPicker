@@ -26,7 +26,7 @@ class FontFilePresenterTests: XCTestCase {
     func test_didFinishLoadingFontFileData_displaysRetryOnFailedFontFileTransformation() throws {
         let (sut, view) = makeSUT(fontTransformer: fail)
         let url1 = URL(string: "http://url1.com")!
-        let variant = Variant(name: "v1", fileURL: url1)
+        let variant = Variant(name: "200italic", fileURL: url1)
 
         sut.didFinishLoadingData(with: Data(), for: variant)
 
@@ -42,8 +42,8 @@ class FontFilePresenterTests: XCTestCase {
 
         let url1 = URL(string: "http://url1.com")!
         let url2 = URL(string: "http://url2.com")!
-        let variant1 = Variant(name: "v1", fileURL: url1)
-        let variant2 = Variant(name: "v2", fileURL: url2)
+        let variant1 = Variant(name: "100", fileURL: url1)
+        let variant2 = Variant(name: "200", fileURL: url2)
 
         sut.didFinishLoadingData(with: Data(), for: variant1)
 
@@ -58,7 +58,7 @@ class FontFilePresenterTests: XCTestCase {
     }
 
     func test_didFinishLoadingFontFileDataWithError_displaysRetry() throws {
-        let variant = Variant(name: "any name", fileURL: anyURL())
+        let variant = Variant(name: "900", fileURL: anyURL())
         let (sut, view) = makeSUT()
 
         sut.didFinishLoadingData(with: anyNSError(), for: variant)
@@ -92,8 +92,7 @@ class FontFilePresenterTests: XCTestCase {
 
     ) {
         XCTAssertEqual(message.shouldRetry, shouldRetry)
-        XCTAssertEqual(message.weight, variant.name)
-//        XCTAssertEqual(message.url, variant.fileURL)
+        XCTAssertEqual(message.weight, localized(variant.name))
         XCTAssertEqual(message.font, font, file: file, line: line)
     }
 
@@ -111,5 +110,16 @@ class FontFilePresenterTests: XCTestCase {
         func display(_ model: FontFileViewModel<AnyFont>.VariantViewModel) {
             messages.append(model)
         }
+    }
+    private func localized(_ key: String, file: StaticString = #filePath, line: UInt = #line) -> String {
+        let table = "Font"
+        let bundle = module
+        let thekey = "KEY_\(key)"
+        let value = bundle.localizedString(forKey: thekey, value: nil, table: table)
+        if value == thekey {
+            XCTFail("Missing localized string for key: \(thekey) in table: \(table)", file: file, line: line)
+            return "⚠️ KEY Missing"
+        }
+        return value
     }
 }

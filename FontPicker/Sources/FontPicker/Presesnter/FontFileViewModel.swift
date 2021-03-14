@@ -36,9 +36,9 @@ public struct FontFileViewModel<F> {
 
 extension Variant {
 
-    func viewModel<F>(font: F?, shouldRetry: Bool) -> FontFileViewModel<F>.VariantViewModel {
-        .init(font: font,
-              weight: name,
-              shouldRetry: shouldRetry, isLoading: false)
-    }
+//    func viewModel<F>(font: F?, shouldRetry: Bool) -> FontFileViewModel<F>.VariantViewModel {
+//        .init(font: font,
+//              weight: name,
+//              shouldRetry: shouldRetry, isLoading: false)
+//    }
 }

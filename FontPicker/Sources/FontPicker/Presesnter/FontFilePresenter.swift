@@ -13,7 +13,7 @@ where View.FONT == Input {
     
     
     public init(view: View, fontTransformer: @escaping (Data) throws -> Input?) {
-        let mapper = FontFileViewModelMapper()
+        let mapper = FontFileViewModelMapper(variantName: Self.nameOfVariant)
         super.init(
             view: view,
             LoadingTransformer: mapper.loading(for: ),
@@ -32,6 +32,11 @@ where View.FONT == Input {
             })
     }
     
-    
+    public static func nameOfVariant(_ variant: Variant) -> String {
+        return NSLocalizedString("KEY_\(variant.name)",
+                                 tableName: "Font",
+                                 bundle: .module,
+                                 comment: "name for the Variant")
+    }
 }
 
