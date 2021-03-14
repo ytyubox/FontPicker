@@ -1,13 +1,12 @@
 
 import Foundation
 public struct FontFileViewModel<F> {
-    public init(name: String, fontDemoText: String, variants: [FontFileViewModel<F>.VariantViewModel], subsets: [String], category: String, shouldRetry: Bool) {
+    public init(name: String, fontDemoText: String, variants: [FontFileViewModel<F>.VariantViewModel], subsets: [String], category: String) {
         self.name = name
         self.fontDemoText = fontDemoText
         self.variants = variants
         self.subsets = subsets
         self.category = category
-        self.shouldRetry = shouldRetry
     }
 
     public let name: String
@@ -15,15 +14,16 @@ public struct FontFileViewModel<F> {
     public let variants: [VariantViewModel]
     public let subsets: [String]
     public let category: String
-    public let shouldRetry: Bool
 
     public struct VariantViewModel {
-        public init(font: F?, weight: String, url: URL) {
+        public init(font: F?, weight: String, url: URL, shouldRetry: Bool) {
             self.font = font
             self.weight = weight
             self.url = url
+            self.shouldRetry = shouldRetry
         }
 
+        public let shouldRetry: Bool
         public var font: F?
         public let weight: String
         public let url: URL
@@ -39,9 +39,10 @@ extension Variant {
 //              weight: name,
 //              url: fileURL)
 //    }
-    func viewModel<F>(font: F?) -> FontFileViewModel<F>.VariantViewModel {
+    func viewModel<F>(font: F?, shouldRetry: Bool) -> FontFileViewModel<F>.VariantViewModel {
         .init(font: font,
               weight: name,
-              url: fileURL)
+              url: fileURL,
+              shouldRetry: shouldRetry)
     }
 }

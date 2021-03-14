@@ -61,58 +61,96 @@ class FontSnapshotTests: XCTestCase {
         return controller
     }
 
-    private func emptyFont() -> [FontFileCellController] {
+    private func emptyFont() -> [FontGroupController] {
         []
     }
 
-    private func feedWithContent() -> [ImageStub] {
+    private func feedWithContent() -> [FontStub] {
         [
-            ImageStub(name: "Font 1",
+            FontStub(name: "Font 1",
                       fontDemoText: "Demo",
-                      variants: [.init(font: .systemFont(ofSize: 12), weight: "regualr", url: anyURL())],
+                      variants: [
+                        .init(font: .systemFont(ofSize: 12), weight: "regualr", url: anyURL(), shouldRetry: false),
+                        .init(font: .systemFont(ofSize: 12), weight: "another weight", url: anyURL(), shouldRetry: false),
+                      ],
                       subsets: ["subset 1", "subset 2"], category: "a Category"),
-            ImageStub(name: "Font 1",
+            FontStub(name: "Font 2",
                       fontDemoText: "Demo",
-                      variants: [.init(font: .systemFont(ofSize: 12), weight: "regualr", url: anyURL())],
+                      variants: [
+                        .init(font: .systemFont(ofSize: 12), weight: "regualr", url: anyURL(), shouldRetry: false)
+                      ],
                       subsets: ["subset 1", "subset 2"], category: "a Category"),
         ]
     }
 
-    private func feedWithFailedImageLoading() -> [ImageStub] {
+    private func feedWithFailedImageLoading() -> [FontStub] {
         [
+            FontStub(name: "Font 1",
+                      fontDemoText: "Demo",
+                      variants: [
+                        .init(font: nil, weight: "regualr", url: anyURL(), shouldRetry: true),
+                        .init(font: nil, weight: "another weight", url: anyURL(), shouldRetry: true),
+                      ],
+                      subsets: ["subset 1", "subset 2"], category: "a Category"),
+            FontStub(name: "Font 2",
+                      fontDemoText: "Demo",
+                      variants: [
+                        .init(font: nil, weight: "regualr", url: anyURL(), shouldRetry: true)
+                      ],
+                      subsets: ["subset 1", "subset 2"], category: "a Category"),
         ]
     }
 }
 
-private class ImageStub: FontFileCellControllerDelegate {
+private class FontStub: FontCellControllerDelegate {
     func requestLoad() {
-        controller?.display(viewModel)
+        zip(controller, viewModel.variants)
+            .forEach({ (controller, variant) in
+            controller?.display(variant)
+        })
     }
 
     func cancelLoad() {}
 
     let viewModel: FontFileViewModel<UIFont>
-    weak var controller: FontFileCellController?
+    var controller: [FontCellController?] = []
 
-    init(name: String, fontDemoText: String, variants: [FontFileViewModel<UIFont>.VariantViewModel], subsets: [String], category: String) {
-        viewModel = FontFileViewModel(name: name, fontDemoText: fontDemoText, variants: variants, subsets: subsets, category: category, shouldRetry: false)
+    init(name: String,
+         fontDemoText: String,
+         variants: [FontFileViewModel<UIFont>.VariantViewModel],
+         subsets: [String],
+         category: String) {
+        viewModel = FontFileViewModel(
+            name: name,
+            fontDemoText: fontDemoText,
+            variants: variants,
+            subsets: subsets,
+            category: category)
     }
 
     func didRequestImage() {
-        controller?.display(viewModel)
+        zip(controller, viewModel.variants)
+            .forEach({ (controller, variant) in
+            controller?.display(variant)
+        })
     }
 
     func didCancelImageRequest() {}
 }
 
 private extension FontViewController {
-    func display(_ stubs: [ImageStub]) {
-        let cells: [FontFileCellController] = stubs.map { stub in
-            let cellController = FontFileCellController(delegate: stub)
-            stub.controller = cellController
-            return cellController
+    func display(_ stubs: [FontStub]) {
+        
+        let groups: [FontGroupController] = stubs.map { stub in
+            let cellControllers = stub.viewModel.variants.map{ _ in FontCellController(delegate: stub)}
+            let group = FontGroupController(
+                name: stub.viewModel.name,
+                tableModel: cellControllers)
+            stub.controller = cellControllers
+            return group
         }
-
-        display(cells)
+       
+        
+        display(groups)
     }
 }

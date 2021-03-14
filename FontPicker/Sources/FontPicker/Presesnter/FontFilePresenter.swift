@@ -1,18 +1,18 @@
 import Foundation
 import LoadingSystem
 
-public protocol FontFileView: UniversalView where Union == FontFileViewModel<F> {
-    associatedtype F
+public protocol FontFileView: UniversalView where Union == FontFileViewModel<FONT>.VariantViewModel {
+    associatedtype FONT
 }
 
 
 
-public final class FontFilePresenter<View: FontFileView, F>:
-    UniversalPresenter<View, (Font, URL), FontFileViewModel<F>>
-where View.F == F {
+public final class FontFilePresenter<View: FontFileView, Input>:
+UniversalPresenter<View, (Variant, URL), FontFileViewModel<Input>.VariantViewModel>
+where View.FONT == Input {
     
     
-    public init(view: View, fontTransformer: @escaping (Data) -> F?) {
+    public init(view: View, fontTransformer: @escaping (Data) -> Input?) {
         let mapper = FontFileViewModelMapper()
         super.init(
             view: view,

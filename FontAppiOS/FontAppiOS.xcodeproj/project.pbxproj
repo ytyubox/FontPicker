@@ -15,7 +15,7 @@
 		D206766725FCED280003AAA7 /* FONT_WITH_FAILED_IMAGE_LOADING_dark-unrecognized.png in Resources */ = {isa = PBXBuildFile; fileRef = D206765F25FCED280003AAA7 /* FONT_WITH_FAILED_IMAGE_LOADING_dark-unrecognized.png */; };
 		D206766825FCED280003AAA7 /* EMPTY_FONT_light-unrecognized.png in Resources */ = {isa = PBXBuildFile; fileRef = D206766025FCED280003AAA7 /* EMPTY_FONT_light-unrecognized.png */; };
 		D206766925FCED280003AAA7 /* FONT_WITH_CONTENT_light-unrecognized.png in Resources */ = {isa = PBXBuildFile; fileRef = D206766125FCED280003AAA7 /* FONT_WITH_CONTENT_light-unrecognized.png */; };
-		D2525AF225FCE8D00079B0C8 /* FontFileCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2525AF125FCE8D00079B0C8 /* FontFileCellController.swift */; };
+		D2525AF225FCE8D00079B0C8 /* FontCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2525AF125FCE8D00079B0C8 /* FontCellController.swift */; };
 		D2525AF425FCE9020079B0C8 /* FontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2525AED25FCE80A0079B0C8 /* FontViewController.swift */; };
 		D2525B0225FCE9220079B0C8 /* Font.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2525AF925FCE9220079B0C8 /* Font.storyboard */; };
 		D2525B0325FCE9220079B0C8 /* UIImageView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2525AFB25FCE9220079B0C8 /* UIImageView+Animations.swift */; };
@@ -24,7 +24,8 @@
 		D2525B0625FCE9220079B0C8 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2525AFE25FCE9220079B0C8 /* UIView+Shimmering.swift */; };
 		D2525B0725FCE9220079B0C8 /* UITableView+Dequeueing.swift .swift in Sources */ = {isa = PBXBuildFile; fileRef = D2525AFF25FCE9220079B0C8 /* UITableView+Dequeueing.swift .swift */; };
 		D2525B0825FCE9220079B0C8 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2525B0025FCE9220079B0C8 /* ErrorView.swift */; };
-		D2525B0925FCE9220079B0C8 /* FontFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2525B0125FCE9220079B0C8 /* FontFileCell.swift */; };
+		D2525B0925FCE9220079B0C8 /* FontCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2525B0125FCE9220079B0C8 /* FontCell.swift */; };
+		D29744FD25FDE5090033A5B6 /* FontGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29744FC25FDE5090033A5B6 /* FontGroupController.swift */; };
 		D2CCCBB525FCE3160071E319 /* FontAppiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2CCCBAB25FCE3160071E319 /* FontAppiOS.framework */; };
 		D2CCCBBA25FCE3160071E319 /* FontPickerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCCBB925FCE3160071E319 /* FontPickerSnapshotTests.swift */; };
 		D2CCCBCA25FCE3310071E319 /* FontAppiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCCBC925FCE3310071E319 /* FontAppiOS.swift */; };
@@ -67,7 +68,7 @@
 		D206766025FCED280003AAA7 /* EMPTY_FONT_light-unrecognized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EMPTY_FONT_light-unrecognized.png"; sourceTree = "<group>"; };
 		D206766125FCED280003AAA7 /* FONT_WITH_CONTENT_light-unrecognized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FONT_WITH_CONTENT_light-unrecognized.png"; sourceTree = "<group>"; };
 		D2525AED25FCE80A0079B0C8 /* FontViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontViewController.swift; sourceTree = "<group>"; };
-		D2525AF125FCE8D00079B0C8 /* FontFileCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFileCellController.swift; sourceTree = "<group>"; };
+		D2525AF125FCE8D00079B0C8 /* FontCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCellController.swift; sourceTree = "<group>"; };
 		D2525AF925FCE9220079B0C8 /* Font.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Font.storyboard; sourceTree = "<group>"; };
 		D2525AFB25FCE9220079B0C8 /* UIImageView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animations.swift"; sourceTree = "<group>"; };
 		D2525AFC25FCE9220079B0C8 /* UIRefreshControl+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Helpers.swift"; sourceTree = "<group>"; };
@@ -75,7 +76,8 @@
 		D2525AFE25FCE9220079B0C8 /* UIView+Shimmering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		D2525AFF25FCE9220079B0C8 /* UITableView+Dequeueing.swift .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeueing.swift .swift"; sourceTree = "<group>"; };
 		D2525B0025FCE9220079B0C8 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		D2525B0125FCE9220079B0C8 /* FontFileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontFileCell.swift; sourceTree = "<group>"; };
+		D2525B0125FCE9220079B0C8 /* FontCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontCell.swift; sourceTree = "<group>"; };
+		D29744FC25FDE5090033A5B6 /* FontGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontGroupController.swift; sourceTree = "<group>"; };
 		D2CCCBAB25FCE3160071E319 /* FontAppiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FontAppiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CCCBAF25FCE3160071E319 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2CCCBB425FCE3160071E319 /* FontAppiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FontAppiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,7 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				D2525AED25FCE80A0079B0C8 /* FontViewController.swift */,
-				D2525AF125FCE8D00079B0C8 /* FontFileCellController.swift */,
+				D2525AF125FCE8D00079B0C8 /* FontCellController.swift */,
+				D29744FC25FDE5090033A5B6 /* FontGroupController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -154,10 +157,18 @@
 			children = (
 				D2525B0025FCE9220079B0C8 /* ErrorView.swift */,
 				D2525AF925FCE9220079B0C8 /* Font.storyboard */,
-				D2525B0125FCE9220079B0C8 /* FontFileCell.swift */,
+				D29744F725FDE2110033A5B6 /* New Group */,
+				D2525B0125FCE9220079B0C8 /* FontCell.swift */,
 				D2525AFA25FCE9220079B0C8 /* Helpers */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D29744F725FDE2110033A5B6 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		D2CCCBA125FCE3160071E319 = {
@@ -336,14 +347,15 @@
 			files = (
 				D2525B0525FCE9220079B0C8 /* UITableView+HeaderSizing.swift in Sources */,
 				D2525B0725FCE9220079B0C8 /* UITableView+Dequeueing.swift .swift in Sources */,
-				D2525AF225FCE8D00079B0C8 /* FontFileCellController.swift in Sources */,
+				D2525AF225FCE8D00079B0C8 /* FontCellController.swift in Sources */,
 				D2525B0425FCE9220079B0C8 /* UIRefreshControl+Helpers.swift in Sources */,
+				D29744FD25FDE5090033A5B6 /* FontGroupController.swift in Sources */,
 				D2525B0625FCE9220079B0C8 /* UIView+Shimmering.swift in Sources */,
 				D2525B0325FCE9220079B0C8 /* UIImageView+Animations.swift in Sources */,
 				D2525AF425FCE9020079B0C8 /* FontViewController.swift in Sources */,
 				D2525B0825FCE9220079B0C8 /* ErrorView.swift in Sources */,
 				D2CCCBCA25FCE3310071E319 /* FontAppiOS.swift in Sources */,
-				D2525B0925FCE9220079B0C8 /* FontFileCell.swift in Sources */,
+				D2525B0925FCE9220079B0C8 /* FontCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

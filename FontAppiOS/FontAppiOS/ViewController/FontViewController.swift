@@ -10,18 +10,26 @@
 import FontPicker
 import UIKit
 
+struct FontGroupViewModel {
+    let fontName: String
+    let fonts: [FontViewModel]
+ }
+struct FontViewModel {
+    let name:String
+    let font: UIFont?
+}
 public protocol FontViewControllerDelegate {
     func didRequestRefresh()
 }
 
 public final class FontViewController: UITableViewController, UITableViewDataSourcePrefetching {
-    private var tableModel: [FontFileCellController] = [] {
+    private var tableModel: [FontGroupController] = [] {
         didSet {
             tableView.reloadData()
         }
     }
 
-    fileprivate var loadingControllers = [IndexPath: FontFileCellController]()
+    fileprivate var loadingControllers = [IndexPath: FontCellController]()
     public typealias Delegate = FontViewControllerDelegate
     public var delegate: Delegate?
     @IBOutlet public private(set) var errorView: ErrorView!
@@ -41,11 +49,15 @@ public final class FontViewController: UITableViewController, UITableViewDataSou
     }
 
     override public func numberOfSections(in _: UITableView) -> Int {
-        1
+        tableModel.count
+    }
+    
+    public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        tableModel[section].name
     }
 
-    override public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        tableModel.count
+    override public func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableModel[section].tableModel.count
     }
 
     override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,9 +77,12 @@ public final class FontViewController: UITableViewController, UITableViewDataSou
     public func tableView(_: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach(cancelCellController(forRowAt:))
     }
-
-    private func cellController(forRowAt indexPath: IndexPath) -> FontFileCellController {
-        let controller = tableModel[indexPath.row]
+    private func SectionController(forRowAt indexPath: IndexPath) -> FontGroupController {
+        tableModel[indexPath.section]
+        
+    }
+    private func cellController(forRowAt indexPath: IndexPath) -> FontCellController {
+        let controller = SectionController(forRowAt: indexPath).tableModel[indexPath.row]
         loadingControllers[indexPath] = controller
         return controller
     }
@@ -79,9 +94,9 @@ public final class FontViewController: UITableViewController, UITableViewDataSou
 }
 
 public extension FontViewController {
-    func display(_ cellControllers: [FontFileCellController]) {
+    func display(_ fontGroupControllers: [FontGroupController]) {
         loadingControllers.removeAll(keepingCapacity: true)
-        tableModel = cellControllers
+        tableModel = fontGroupControllers
     }
 }
 

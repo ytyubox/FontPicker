@@ -115,7 +115,7 @@ class FontFilePresenterTests: XCTestCase {
 	private struct AnyFont: Equatable {}
 	
     private class ViewSpy: FontFileView {
-        typealias F = AnyFont
+        typealias Vairant = AnyFont
 		
 		private(set) var messages = [FontFileViewModel<AnyFont>]()
 		

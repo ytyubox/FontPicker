@@ -9,8 +9,19 @@
 
 import UIKit
 
+protocol ReusableID {
+    static var id: String {get}
+}
+
 extension UITableView {
-    func dequeueReusableCell<Cell: UITableViewCell>(with _: Cell.Type) -> Cell {
-        dequeueReusableCell(withIdentifier: "\(Cell.self)") as! Cell
+    typealias ReusableCell = UITableViewCell & ReusableID
+    func dequeueReusableCell<Cell: ReusableCell>(with celltype: Cell.Type) -> Cell {
+        dequeueReusableCell(withIdentifier: Cell.id) as! Cell
+    }
+    func dequeueReusableCell<Cell: ReusableCell>(with celltype: Cell.Type, for indexPath: IndexPath) -> Cell {
+        dequeueReusableCell(withIdentifier: Cell.id, for: indexPath) as! Cell
+    }
+    func register<Cell:ReusableCell>(_ cellType: Cell.Type) {
+        register(Cell.self, forCellReuseIdentifier: Cell.id)
     }
 }
