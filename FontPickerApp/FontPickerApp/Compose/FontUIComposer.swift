@@ -18,10 +18,13 @@ enum FontUIComposer {
         let fontFileLoader_alwaysOnMain = MainQueueDispatchDecorator(decoratee: fontFileLoader).toAnyCancellableLoader()
 
         let fontLoaderPresentationAdapter = FontLoaderPresentationAdapter<FontViewAdapter>(fontLoader: fontLoader_alwaysOnMain)
+        
         let fontController = createFontViewController(
-            delegate: fontLoaderPresentationAdapter,
+//            delegate: fontLoaderPresentationAdapter,
             title: FontPresenter<AnyFontVIew>.title
         )
+        fontController.delegate = fontLoaderPresentationAdapter
+            .adaptIntroction(view: fontController.firstSection)
 
         fontLoaderPresentationAdapter.presenter =
             FontPresenter(
@@ -38,14 +41,14 @@ enum FontUIComposer {
     // MARK: - Factory
 
     private static func createFontViewController(
-        delegate: FontViewController.Delegate,
+//        delegate: FontViewController.Delegate,
         title: String
     ) -> FontViewController {
         let bundle = Bundle(for: FontViewController.self)
         let storyboard = UIStoryboard(name: "Font", bundle: bundle)
         let object = storyboard.instantiateInitialViewController() as! FontViewController
         object.title = title
-        object.delegate = delegate
+//        object.delegate = delegate
         return object
     }
 }
@@ -53,5 +56,6 @@ enum FontUIComposer {
 class AnyFontVIew: FontView {
     func display(_: ItemsViewModel<Font>) {}
 }
+
 
 

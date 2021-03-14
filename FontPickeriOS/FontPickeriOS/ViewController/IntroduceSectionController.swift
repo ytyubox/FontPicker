@@ -8,6 +8,7 @@
  */
 
 import UIKit
+import FontPicker
 
 public class IntroduceSectionController: NSObject, UITableViewDataSource, UITableViewDelegate, TableViewSource {
   
@@ -32,12 +33,14 @@ public class IntroduceSectionController: NSObject, UITableViewDataSource, UITabl
     public func tableView(_: UITableView, cellForRowAt _: IndexPath) -> UITableViewCell {
         cell
     }
-    
-    public func display(_ introduction: IntroctionViewModel) {
-        cell.textLabel?.text = introduction.content
-    }
 }
 
-public struct IntroctionViewModel {
-    public let content:String
+
+
+extension IntroduceSectionController: IntroductionView {
+    
+    public func display(_ introduction: IntroductionViewModel) {
+        cell.textLabel?.text = introduction.content
+    }
+  
 }

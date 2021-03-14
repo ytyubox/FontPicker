@@ -9,6 +9,7 @@
 
 import FontPicker
 import FontPickeriOS
+import Foundation
 import LoadingSystem
 final class FontLoaderPresentationAdapter<View: FontView>: FontViewControllerDelegate {
     private let fontLoader: AnyLoader<[Font]>
@@ -33,3 +34,29 @@ final class FontLoaderPresentationAdapter<View: FontView>: FontViewControllerDel
         }
     }
 }
+
+class FontLoaderAdaptIntroction: FontViewControllerDelegate {
+    internal init(decoratee: FontViewControllerDelegate,
+                  presenter: AppPresenter<IntroduceSectionController>) {
+        self.decoratee = decoratee
+        self.presenter = presenter
+    }
+    
+    
+    var decoratee: FontViewControllerDelegate
+    var presenter: AppPresenter<IntroduceSectionController>
+    
+    func didRequestRefresh() {
+        decoratee.didRequestRefresh()
+        presenter.didFinishLoading(with: IntroductionViewModel(content: AppPresenter<IntroduceSectionController>.introduction))
+    }
+}
+
+extension FontViewControllerDelegate {
+    func adaptIntroction(view: IntroduceSectionController) -> FontViewControllerDelegate{
+        FontLoaderAdaptIntroction(decoratee: self, presenter: .init(introductionView: view, errorMessageFactory: { (error) -> IntroductionViewModel in
+            IntroductionViewModel(content: error.localizedDescription)
+        }))
+    }
+}
+

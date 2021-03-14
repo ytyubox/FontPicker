@@ -11,20 +11,20 @@
 
 
 "KEY_100" = "淡體";
-"KEY_100italic" = "淡體";
+"KEY_100italic" = "淡體 斜體";
 "KEY_200" = "特細";
-"KEY_200italic" = "特細";
+"KEY_200italic" = "特細 斜體";
 "KEY_300" = "細體";
-"KEY_300italic" = "細體";
+"KEY_300italic" = "細體 斜體";
 "KEY_500" = "適中";
-"KEY_500italic" = "適中";
+"KEY_500italic" = "適中 斜體";
 "KEY_600" = "次粗";
-"KEY_600italic" = "次粗";
+"KEY_600italic" = "次粗 斜體";
 "KEY_700" = "粗體";
-"KEY_700italic" = "粗體";
+"KEY_700italic" = "粗體 斜體";
 "KEY_800" = "特粗";
-"KEY_800italic" = "特粗";
+"KEY_800italic" = "特粗 斜體";
 "KEY_900" = "濃體";
-"KEY_900italic" = "濃體";
+"KEY_900italic" = "濃體 斜體";
 "KEY_italic" = "斜體";
 "KEY_regular" = "標準";

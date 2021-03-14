@@ -25,7 +25,7 @@ public protocol FontViewControllerDelegate {
 }
  
 public final class FontViewController: UITableViewController, UITableViewDataSourcePrefetching {
-    private lazy var firstSection: IntroduceSectionController! = IntroduceSectionController()
+    public private(set) lazy var firstSection: IntroduceSectionController! = IntroduceSectionController()
     private var tableModel: [FontGroupController] = [] {
         didSet {
             sectionController = makeSectionControllers()
@@ -110,10 +110,6 @@ public extension FontViewController {
 extension FontViewController: FontLoadingView {
     public func display(_ viewModel: FontLoadingViewModel) {
         refreshControl?.update(isRefreshing: viewModel.isLoading)
-    }
-    
-    public func display(_ introduction: IntroctionViewModel) {
-        firstSection.display(introduction)
     }
 }
 
