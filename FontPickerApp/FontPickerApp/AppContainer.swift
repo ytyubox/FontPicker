@@ -83,6 +83,6 @@ private let APIKEY: String = {
     let valueFromKey = dictory?[APIKEY_PLISTKEY]
     let value = valueFromKey
     let key = value as! String
-//    precondition(!key.isEmpty)
+    assert(!key.isEmpty, "APIKEY did not set, Please set in secrets.xcconfig")
     return key
 }()

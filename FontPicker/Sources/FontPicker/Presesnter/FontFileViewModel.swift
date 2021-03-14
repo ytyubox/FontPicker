@@ -16,17 +16,20 @@ public struct FontFileViewModel<F> {
     public let category: String
 
     public struct VariantViewModel {
-        public init(font: F?, weight: String, url: URL, shouldRetry: Bool) {
+        public init(font: F?,
+                    weight: String,
+//                    url: URL,
+                    shouldRetry: Bool) {
             self.font = font
             self.weight = weight
-            self.url = url
+//            self.url = url
             self.shouldRetry = shouldRetry
         }
 
         public let shouldRetry: Bool
         public var font: F?
         public let weight: String
-        public let url: URL
+//        public let url: URL
     }
 }
 
@@ -42,7 +45,6 @@ extension Variant {
     func viewModel<F>(font: F?, shouldRetry: Bool) -> FontFileViewModel<F>.VariantViewModel {
         .init(font: font,
               weight: name,
-              url: fileURL,
               shouldRetry: shouldRetry)
     }
 }

@@ -44,3 +44,20 @@ extension WeakRefVirtualProxy: FontErrorView where Object: FontErrorView {
         object?.display(viewModel)
     }
 }
+
+extension WeakRefVirtualProxy: ItemsView where Object: ItemsView {
+    func display(_ viewModel: ItemsViewModel<Object.Item>) {
+        object?.display(viewModel)
+    }
+
+    
+}
+
+extension WeakRefVirtualProxy: FontView where Object: FontView  {
+    
+    func display(_ viewModel: ItemsViewModel<Font>) {
+        object?.display(viewModel)
+    }
+    
+    
+}

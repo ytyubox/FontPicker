@@ -16,7 +16,9 @@ public struct Font:Hashable {
 }
 
 public struct Variant:Hashable {
-    public init(name: String, fileURL: URL, data: Data? = nil) {
+    public init(name: String,
+                fileURL: URL,
+                data: Data? = nil) {
         self.name = name
         self.fileURL = fileURL
         self.data = data

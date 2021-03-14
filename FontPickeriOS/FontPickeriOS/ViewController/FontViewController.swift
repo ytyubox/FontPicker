@@ -37,16 +37,20 @@ public final class FontViewController: UITableViewController, UITableViewDataSou
     private lazy var firstSection: IntroduceSectionController! = IntroduceSectionController(content: introducing)
     private var tableModel: [FontGroupController] = [] {
         didSet {
+            sectionController = makeSectionControllers()
             tableView.reloadData()
         }
     }
 
-    private lazy var sectionController: [TableViewSource] =
+    private var sectionController: [TableViewSource] = []
+     
+
+    private func makeSectionControllers() -> [TableViewSource] {
         [
             [firstSection as TableViewSource],
             tableModel.map { $0 as TableViewSource },
         ].flatMap { $0 }
-
+    }
     public typealias Delegate = FontViewControllerDelegate
     public var delegate: Delegate?
     @IBOutlet public private(set) var errorView: ErrorView!

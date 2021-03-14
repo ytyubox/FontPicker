@@ -12,6 +12,8 @@ import FontPickeriOS
 import LoadingSystem
 import UIKit
 
+private typealias Proxy = WeakRefVirtualProxy<FontCellController>
+
 final class FontViewAdapter: FontView {
     private unowned var controller: FontViewController?
     private let fontFileLoader: AnyCancellableLoader<Data>
@@ -23,28 +25,43 @@ final class FontViewAdapter: FontView {
         self.fontFileLoader = fontFileLoader
     }
 
-    func display(_: FontViewModel) {
-//        controller?.display(
-//            viewModel.items.map { model in
-//                let adapter = FontFontFileDataPresentationAdapter<WeakRefVirtualProxy<FontCellController>, UIFont>(
-//                    fontFileDataLoader: fontFileLoader,
-//                    model: model
-//                )
-//                let view = FontFontFileCellController(delegate: adapter)
-//                adapter.presenter = FontFontFilePresenter(view: WeakRefVirtualProxy(view), fontFileTransformer: UIFontFile.init(data:))
-//                return view
-//            }
-//        )
+    func display(_ viewModel: FontViewModel) {
+        controller?.display(
+            viewModel.items.map{
+                font in
+                
+                FontGroupController(
+                    name: font.name,
+                    demoText: font.name,
+                    tableModel:
+                        font.variants.map{
+                            variant in
+                            let adapt = FontFilePresentationAdapter<Proxy, UIFont>(
+                                fontFileDataLoader: fontFileLoader,
+                                model: variant,
+                                url: variant.fileURL)
+                            let view = FontCellController(delegate: adapt)
+                            adapt.presenter = FontFilePresenter(
+                                view: WeakRefVirtualProxy(view),
+                                fontTransformer: UIFont.make)
+                            return view
+                        }
+                )
+            }
+        )
     }
 }
 
 private extension UIFont {
-    static func make(data: Data, size _: CGFloat) -> UIFont? {
+    static func make(data: Data) -> UIFont? {
+        make(data: data, size: 30)
+    }
+    static func make(data: Data, size: CGFloat) -> UIFont? {
         guard
             let dataProvider = CGDataProvider(data: data as CFData),
             let cgFont = CGFont(dataProvider)
         else { return nil }
-
+        
         var error: Unmanaged<CFError>?
         if !CTFontManagerRegisterGraphicsFont(cgFont, &error) {
             return nil
@@ -52,7 +69,7 @@ private extension UIFont {
             guard let fontName = cgFont.postScriptName else {
                 return nil
             }
-            return UIFont(name: String(fontName), size: 30)
+            return UIFont(name: String(fontName), size: size)
         }
     }
 }

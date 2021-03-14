@@ -8,7 +8,7 @@ public protocol FontFileView: UniversalView where Union == FontFileViewModel<FON
 
 
 public final class FontFilePresenter<View: FontFileView, Input>:
-UniversalPresenter<View, (Variant, URL), FontFileViewModel<Input>.VariantViewModel>
+UniversalPresenter<View, Variant, FontFileViewModel<Input>.VariantViewModel>
 where View.FONT == Input {
     
     

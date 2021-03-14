@@ -38,7 +38,7 @@ extension ManagedVariant {
             let managed = ManagedVariant(context: context)
             managed.name = local.name
             managed.data = local.data
-            managed.url = local.fileURL
+//            managed.url = local.fileURL
             return managed
         })
     }

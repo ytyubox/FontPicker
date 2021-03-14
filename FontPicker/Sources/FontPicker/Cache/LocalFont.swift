@@ -24,7 +24,9 @@ public struct LocalFont:Equatable {
     public let subsets:[String]
     public let category:String
     public struct LocalVariant:Equatable {
-        public init(name: String, fileURL: URL, data: Data?) {
+        public init(name: String,
+                    fileURL: URL,
+                    data: Data?) {
             self.name = name
             self.fileURL = fileURL
             self.data = data
