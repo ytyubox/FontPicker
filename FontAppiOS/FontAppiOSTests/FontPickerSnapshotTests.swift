@@ -14,7 +14,6 @@ import UIKit
 import XCTest
 
 class FontSnapshotTests: XCTestCase {
-    
     func test_emptyFont() throws {
         let sut = makeSUT()
         sut.display(emptyFont())
@@ -31,6 +30,7 @@ class FontSnapshotTests: XCTestCase {
         XCTAssert(snapshot: sut.snapshot(for: .init(style: .light)), named: "FONT_WITH_CONTENT_light")
         XCTAssert(snapshot: sut.snapshot(for: .init(style: .dark)), named: "FONT_WITH_CONTENT_dark")
     }
+
     func test_feedWithExtraExtraExtraLargeContent() {
         let sut = makeSUT()
 
@@ -39,8 +39,8 @@ class FontSnapshotTests: XCTestCase {
         XCTAssert(snapshot: sut.snapshot(for: .init(style: .light, contentSize: .extraExtraExtraLarge)), named: "FONT_WITH_CONTENT_light_extraExtraExtraLarge")
         XCTAssert(snapshot: sut.snapshot(for: .init(style: .dark, contentSize: .extraExtraExtraLarge)), named: "FONT_WITH_CONTENT_dark_extraExtraExtraLarge")
     }
+
     func test_feedWithAccessibilityExtraLargeContent() {
-        
         let sut = makeSUT()
 
         sut.display(feedWithContent())
@@ -48,7 +48,7 @@ class FontSnapshotTests: XCTestCase {
         XCTAssert(snapshot: sut.snapshot(for: .init(style: .light, contentSize: .accessibilityExtraLarge)), named: "FONT_WITH_CONTENT_light_accessibilityExtraLarge")
         XCTAssert(snapshot: sut.snapshot(for: .init(style: .dark, contentSize: .accessibilityExtraLarge)), named: "FONT_WITH_CONTENT_dark_accessibilityExtraLarge")
     }
-    
+
     func test_feedWithAccessibilityExtraExtraExtraLargeContent() {
         let sut = makeSUT()
 
@@ -57,8 +57,6 @@ class FontSnapshotTests: XCTestCase {
         XCTAssert(snapshot: sut.snapshot(for: .init(style: .light, contentSize: .accessibilityExtraExtraExtraLarge)), named: "FONT_WITH_CONTENT_light_accessibilityExtraExtraExtraLarge")
         XCTAssert(snapshot: sut.snapshot(for: .init(style: .dark, contentSize: .extraExtraExtraLarge)), named: "FONT_WITH_CONTENT_dark_accessibilityExtraExtraExtraLarge")
     }
-
-
 
     func test_feedWithErrorMessage() {
         let sut = makeSUT()
@@ -96,37 +94,37 @@ class FontSnapshotTests: XCTestCase {
 
     private func feedWithContent() -> [FontStub] {
         [
-            FontStub(name: "Font 1",
-                      fontDemoText: "Demo",
-                      variants: [
-                        .init(font: .systemFont(ofSize: 12), weight: "regualr", url: anyURL(), shouldRetry: false),
-                        .init(font: .systemFont(ofSize: 12), weight: "another weight", url: anyURL(), shouldRetry: false),
-                      ],
-                      subsets: ["subset 1", "subset 2"], category: "a Category"),
+            FontStub(name: "A Really long Really long Really long Font 1",
+                     fontDemoText: "A Really long Really long Really long Font 1",
+                     variants: [
+                         .init(font: .systemFont(ofSize: 12), weight: "A Really long Really long Really long name", url: anyURL(), shouldRetry: false),
+                         .init(font: .systemFont(ofSize: 12), weight: "another weight", url: anyURL(), shouldRetry: false),
+                     ],
+                     subsets: ["subset 1", "subset 2"], category: "a Category"),
             FontStub(name: "Font 2",
-                      fontDemoText: "Demo",
-                      variants: [
-                        .init(font: .systemFont(ofSize: 12), weight: "regualr", url: anyURL(), shouldRetry: false)
-                      ],
-                      subsets: ["subset 1", "subset 2"], category: "a Category"),
+                     fontDemoText: "Demo",
+                     variants: [
+                         .init(font: .systemFont(ofSize: 12), weight: "regualr", url: anyURL(), shouldRetry: false),
+                     ],
+                     subsets: ["subset 1", "subset 2"], category: "a Category"),
         ]
     }
 
     private func feedWithFailedImageLoading() -> [FontStub] {
         [
-            FontStub(name: "Font 1",
-                      fontDemoText: "Demo",
-                      variants: [
-                        .init(font: nil, weight: "regualr", url: anyURL(), shouldRetry: true),
-                        .init(font: nil, weight: "another weight", url: anyURL(), shouldRetry: true),
-                      ],
-                      subsets: ["subset 1", "subset 2"], category: "a Category"),
+            FontStub(name: "A Really long Really long Really long Font 1",
+                     fontDemoText: "A Really long Really long Really long Font 1",
+                     variants: [
+                         .init(font: nil, weight: "A Really long Really long Really long name", url: anyURL(), shouldRetry: true),
+                         .init(font: nil, weight: "another weight", url: anyURL(), shouldRetry: true),
+                     ],
+                     subsets: ["subset 1", "subset 2"], category: "a Category"),
             FontStub(name: "Font 2",
-                      fontDemoText: "Demo",
-                      variants: [
-                        .init(font: nil, weight: "regualr", url: anyURL(), shouldRetry: true)
-                      ],
-                      subsets: ["subset 1", "subset 2"], category: "a Category"),
+                     fontDemoText: "Demo",
+                     variants: [
+                         .init(font: nil, weight: "regular", url: anyURL(), shouldRetry: true),
+                     ],
+                     subsets: ["subset 1", "subset 2"], category: "a Category"),
         ]
     }
 }
@@ -134,9 +132,9 @@ class FontSnapshotTests: XCTestCase {
 private class FontStub: FontCellControllerDelegate {
     func requestLoad() {
         zip(controller, viewModel.variants)
-            .forEach({ (controller, variant) in
-            controller?.display(variant)
-        })
+            .forEach { controller, variant in
+                controller?.display(variant)
+            }
     }
 
     func cancelLoad() {}
@@ -148,20 +146,22 @@ private class FontStub: FontCellControllerDelegate {
          fontDemoText: String,
          variants: [FontFileViewModel<UIFont>.VariantViewModel],
          subsets: [String],
-         category: String) {
+         category: String)
+    {
         viewModel = FontFileViewModel(
             name: name,
             fontDemoText: fontDemoText,
             variants: variants,
             subsets: subsets,
-            category: category)
+            category: category
+        )
     }
 
     func didRequestImage() {
         zip(controller, viewModel.variants)
-            .forEach({ (controller, variant) in
-            controller?.display(variant)
-        })
+            .forEach { controller, variant in
+                controller?.display(variant)
+            }
     }
 
     func didCancelImageRequest() {}
@@ -169,17 +169,16 @@ private class FontStub: FontCellControllerDelegate {
 
 private extension FontViewController {
     func display(_ stubs: [FontStub]) {
-        
         let groups: [FontGroupController] = stubs.map { stub in
-            let cellControllers = stub.viewModel.variants.map{ _ in FontCellController(delegate: stub)}
+            let cellControllers = stub.viewModel.variants.map { _ in FontCellController(delegate: stub) }
             let group = FontGroupController(
-                name: stub.viewModel.name,
-                tableModel: cellControllers)
+                name: stub.viewModel.name, demoText: stub.viewModel.fontDemoText,
+                tableModel: cellControllers
+            )
             stub.controller = cellControllers
             return group
         }
-       
-        
+
         display(groups)
     }
 }

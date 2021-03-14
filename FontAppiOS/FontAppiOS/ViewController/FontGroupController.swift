@@ -1,36 +1,36 @@
 //
-/* 
+/*
  *		Created by 游宗諭 in 2021/3/14
- *		
+ *
  *		Using Swift 5.0
- *		
+ *
  *		Running on macOS 11.2
  */
-
 
 import FontPicker
 import UIKit
 
 public final class FontGroupController {
-    convenience init(name: String, tableModel: [FontCellController]) {
+    convenience init(name: String, demoText: String, tableModel: [FontCellController]) {
         self.init()
+        self.demoText = demoText
         self.name = name
         self.tableModel = tableModel
     }
-    var name: String = ""
-    
-    var tableModel = [FontCellController]()
-    
+
+    private var name: String = ""
+    private var demoText: String = ""
+    private var tableModel = [FontCellController]()
+
     private var loadingControllers = [IndexPath: FontCellController]()
 
     func view(tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         let cellController = tableModel[indexPath.row]
-        
+        cellController.demoText = demoText
         let cell = cellController.view(tableView: tableView)
         return cell
     }
 
-    
     private func cellController(forRowAt indexPath: IndexPath) -> FontCellController {
         let controller = tableModel[indexPath.row]
         loadingControllers[indexPath] = controller
@@ -41,25 +41,24 @@ public final class FontGroupController {
         loadingControllers[indexPath]?.cancelLoad()
         loadingControllers[indexPath] = nil
     }
+
     deinit {
         loadingControllers.removeAll()
     }
 }
 
 extension FontGroupController: TableViewSource {
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_: UITableView, titleForHeaderInSection _: Int) -> String? {
         name
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         tableModel.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         view(tableView: tableView, for: indexPath)
     }
-    
-    
 }
 
 extension FontGroupController: TableViewDisplay {
