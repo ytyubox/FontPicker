@@ -78,6 +78,8 @@
 /* Begin PBXFileReference section */
 		D2107A7525FE67370070EDA3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		D2107A7925FE6C560070EDA3 /* UIFont+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Data.swift"; sourceTree = "<group>"; };
+		D2107A8025FE7D860070EDA3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		D2107A8125FE7D860070EDA3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D22E7D2E25FE0A9B00A18255 /* FontAppiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FontAppiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22E7D3B25FE0C3D00A18255 /* FontFileLoaderCacheDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontFileLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 		D22E7D3C25FE0C3D00A18255 /* FontFileLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontFileLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hant",
 			);
 			mainGroup = D2C1889425FA044900B86D82;
 			productRefGroup = D2C1889E25FA044900B86D82 /* Products */;
@@ -416,6 +419,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D2C188A725FA044900B86D82 /* Base */,
+				D2107A8025FE7D860070EDA3 /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -424,6 +428,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D2C188AC25FA044900B86D82 /* Base */,
+				D2107A8125FE7D860070EDA3 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -496,6 +502,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
