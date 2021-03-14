@@ -16,7 +16,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var root:Root = {
-        let adapter:AppFontStoreAdapter? = nil// AppFontStoreAdapter()
+        let adapter:AppFontStoreAdapter? = AppFontStoreAdapter()
         let null = NullStore()
         var root: Root = Container(
             httpClient: makeHTTPClient(),
