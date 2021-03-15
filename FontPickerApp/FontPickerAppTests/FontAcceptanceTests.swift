@@ -7,10 +7,6 @@ import FontPicker
 import FontPickeriOS
 import XCTest
 
-func fontToData(font: UIFont) -> Data {
-    "\(font)".data(using: .utf8)!
-}
-
 class FontAcceptanceTests: XCTestCase {
     func test_onLaunch_displaysRemoteFontWhenCustomerHasConnectivity() {
         let feed = launch(httpClient: .onlineFont(transformer: fontToData(font:), response), store: .empty)
@@ -128,4 +124,5 @@ class FontAcceptanceTests: XCTestCase {
             store.retrieve(completion: completion)
         }
     }
+    
 }

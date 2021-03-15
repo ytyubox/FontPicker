@@ -49,6 +49,8 @@
 		D2C188AA25FA044900B86D82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2C188A925FA044900B86D82 /* Assets.xcassets */; };
 		D2C188AD25FA044900B86D82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C188AB25FA044900B86D82 /* LaunchScreen.storyboard */; };
 		D2C188B825FA044900B86D82 /* FontPickerAppAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C188B725FA044900B86D82 /* FontPickerAppAPIEndToEndTests.swift */; };
+		D2D66EEB25FF17C7007A1217 /* FontToData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D66EEA25FF17C7007A1217 /* FontToData.swift */; };
+		D2D66EEE25FF1878007A1217 /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D66EED25FF1878007A1217 /* Lock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,8 @@
 		D2C188B725FA044900B86D82 /* FontPickerAppAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPickerAppAPIEndToEndTests.swift; sourceTree = "<group>"; };
 		D2C188B925FA044900B86D82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2C188E525FA0CCD00B86D82 /* secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = secrets.xcconfig; path = FontPickerApp/secrets.xcconfig; sourceTree = SOURCE_ROOT; };
+		D2D66EEA25FF17C7007A1217 /* FontToData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontToData.swift; sourceTree = "<group>"; };
+		D2D66EED25FF1878007A1217 /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				D22E7D5325FE136200A18255 /* AppFontStoreAdapter.swift */,
+				D2D66EED25FF1878007A1217 /* Lock.swift */,
 				D22E7D4D25FE0F0700A18255 /* FontStore.swift */,
 				D22E7D3B25FE0C3D00A18255 /* FontFileLoaderCacheDecorator.swift */,
 				D22E7D3C25FE0C3D00A18255 /* FontFileLoaderWithFallbackComposite.swift */,
@@ -190,6 +195,7 @@
 				D24F8D7725FE301100E1A21A /* SharedTestHelpers.swift */,
 				D24F8D7825FE301100E1A21A /* UIButton+TestHelpers.swift */,
 				D24F8D7925FE301100E1A21A /* FontUIIntegrationTests+Assertions.swift */,
+				D2D66EEA25FF17C7007A1217 /* FontToData.swift */,
 				D24F8D7A25FE301100E1A21A /* FontImageCell+TestHelpers.swift */,
 				D24F8D7B25FE301100E1A21A /* InMemoryFontStore.swift */,
 				D24F8D7C25FE301100E1A21A /* XCTestCase+MemoryLeakTracking.swift */,
@@ -363,6 +369,7 @@
 				D22E7D4225FE0C3D00A18255 /* FontLoaderWithFallbackComposite.swift in Sources */,
 				D22E7D4025FE0C3D00A18255 /* FontFileLoaderWithFallbackComposite.swift in Sources */,
 				D22E7D6425FE17DD00A18255 /* FontLoaderPresentationAdapter.swift in Sources */,
+				D2D66EEE25FF1878007A1217 /* Lock.swift in Sources */,
 				D22E7D3F25FE0C3D00A18255 /* FontFileLoaderCacheDecorator.swift in Sources */,
 				D22E7D6225FE17DD00A18255 /* FontImageDataPresentationAdapter.swift in Sources */,
 				D22E7D6525FE17DD00A18255 /* FontUIComposer.swift in Sources */,
@@ -398,6 +405,7 @@
 				D24F8D9225FE301100E1A21A /* UIView+TestHelpers.swift in Sources */,
 				D24F8D8C25FE301100E1A21A /* InMemoryFontStore.swift in Sources */,
 				D24F8D8625FE301100E1A21A /* FontUIIntegrationTests+LoaderSpy.swift in Sources */,
+				D2D66EEB25FF17C7007A1217 /* FontToData.swift in Sources */,
 				D2C188B825FA044900B86D82 /* FontPickerAppAPIEndToEndTests.swift in Sources */,
 				D24F8D8B25FE301100E1A21A /* FontImageCell+TestHelpers.swift in Sources */,
 				D24F8D8725FE301100E1A21A /* FontUIIntegrationTests+Localization.swift in Sources */,
@@ -561,7 +569,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3AMPL46LPV;
 				INFOPLIST_FILE = FontPickerApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -582,7 +590,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3AMPL46LPV;
 				INFOPLIST_FILE = FontPickerApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

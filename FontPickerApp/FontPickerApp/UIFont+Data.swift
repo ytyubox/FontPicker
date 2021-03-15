@@ -10,9 +10,8 @@
 
 import Foundation
 import UIKit
-
-private var fontBook: [URL: UIFont] = [:]
-extension UIFont {
+ class UIFontMaker {
+    @Lock private var fontBook: [URL: UIFont] = [:]
     enum CreateFromDataFailure: Error {
         case
             noCGDataProvider,
@@ -22,10 +21,10 @@ extension UIFont {
             noUIFontWithName
     
     }
-    static func build(url:URL, data: Data) throws -> UIFont{
+    func build(url:URL, data: Data) throws -> UIFont{
         try build(url: url, data: data, size: 30)
     }
-    static func build(url:URL, data: Data, size: CGFloat) throws -> UIFont{
+    func build(url:URL, data: Data, size: CGFloat) throws -> UIFont{
         if let font = fontBook[url] {return font}
         guard
             let dataProvider = CGDataProvider(data: data as CFData)
@@ -45,7 +44,7 @@ extension UIFont {
                 throw CreateFromDataFailure.noFontName
             }
             
-            guard let object = self.init(name: String(fontName), size: size) else {
+            guard let object = UIFont(name: String(fontName), size: size) else {
                 throw CreateFromDataFailure.noUIFontWithName
             }
             fontBook[url] = object

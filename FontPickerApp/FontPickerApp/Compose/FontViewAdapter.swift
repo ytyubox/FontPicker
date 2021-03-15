@@ -17,7 +17,7 @@ private typealias Proxy = WeakRefVirtualProxy<FontCellController>
 final class FontViewAdapter: FontView {
     private unowned var controller: FontViewController?
     private let fontFileLoader: AnyCancellableLoader<Data>
-
+    private let fontMaker = UIFontMaker()
     init(controller: FontViewController,
          fontFileLoader: AnyCancellableLoader<Data>)
     {
@@ -44,9 +44,10 @@ final class FontViewAdapter: FontView {
                         adapt.presenter = FontFilePresenter(
                             view: WeakRefVirtualProxy(view),
                             fontTransformer: {
+                                [fontMaker]
                                 data in
                                 try
-                                    UIFont.build(url: variant.fileURL, data: data)
+                                    fontMaker.build(url: variant.fileURL, data: data)
                             }
                         )
                         return view
