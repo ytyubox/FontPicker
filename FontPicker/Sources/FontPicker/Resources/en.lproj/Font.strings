@@ -8,6 +8,7 @@ Support:
 
 "FONT_VIEW_TITLE" = "Font from Google";
 "FONT_VIEW_CONNECTION_ERROR" = "Couldn't connect to server";
+"FONT_FILE_TRANSFER_ERROR" = "Display the font with unkown error";
 "KEY_100" = "Thin 100";
 "KEY_100italic" = "Thin 100 italic";
 "KEY_200" = "Extra-light 200";

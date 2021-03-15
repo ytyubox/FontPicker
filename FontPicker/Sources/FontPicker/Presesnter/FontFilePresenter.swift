@@ -28,7 +28,14 @@ where View.FONT == Input {
             ,
             FailureTransformer: {
                 (input, error) in
-                mapper.failure(input, with: error)
+                let output = mapper.failure(input, with: error)
+                
+                return .init(font: nil,
+                             weight: [
+                                Self.fontTransferFilure(), output.weight
+                             ].joined(separator: ", "),
+                             shouldRetry: false,
+                             isLoading: false)
             })
     }
     
@@ -37,6 +44,12 @@ where View.FONT == Input {
                                  tableName: "Font",
                                  bundle: .module,
                                  comment: "name for the Variant")
+    }
+    public static func fontTransferFilure() -> String {
+        return NSLocalizedString("FONT_FILE_TRANSFER_ERROR",
+                                 tableName: "Font",
+                                 bundle: .module,
+                                 comment: "failure to transfer font")
     }
 }
 

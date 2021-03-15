@@ -8,7 +8,7 @@
 
 "FONT_VIEW_TITLE" = "Google 字型";
 "FONT_VIEW_CONNECTION_ERROR" = "無法連結伺服器";
-
+"FONT_FILE_TRANSFER_ERROR" = "字型讀取失敗";
 
 "KEY_100" = "淡體";
 "KEY_100italic" = "淡體 斜體";
